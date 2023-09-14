@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/13 11:35:45 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/09/14 20:17:23 by mmeguedm         ###   ########.fr       */
+/*   Created: 2023/09/14 13:56:41 by mmeguedm          #+#    #+#             */
+/*   Updated: 2023/09/14 15:58:01 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
 #include <iostream>
-#include <functional>
 
-class PhoneBook {
+class	Contact {
 	public :
-		PhoneBook( void );
-		~PhoneBook( void );
-		
-	
+		Contact();
+		~Contact();
 	private :
-		// int	contacts[8];
+		// std::string	m_first_name;
+		// std::string	m_last_name;
+		// std::string	m_nickname;
+		// int			phone_number;
+		// int			darkest_secret;
 };
 
 #endif

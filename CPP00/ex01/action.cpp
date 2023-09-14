@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   action.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/13 11:35:45 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/09/14 20:17:23 by mmeguedm         ###   ########.fr       */
+/*   Created: 2023/09/14 18:45:50 by mmeguedm          #+#    #+#             */
+/*   Updated: 2023/09/14 18:47:15 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
-
 #include <iostream>
-#include <functional>
+#include "PhoneBook.hpp"
+#include "Contact.hpp"
 
-class PhoneBook {
-	public :
-		PhoneBook( void );
-		~PhoneBook( void );
-		
-	
-	private :
-		// int	contacts[8];
-};
+void	addAction( void )
+{
 
-#endif
+}
+
+void	searchAction( void )
+{
+
+}
+
+void	exitAction( void )
+{
+
+}

@@ -6,7 +6,7 @@
 #    By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/12 18:59:31 by mmeguedm          #+#    #+#              #
-#    Updated: 2023/09/13 12:10:13 by mmeguedm         ###   ########.fr        #
+#    Updated: 2023/09/14 20:12:13 by mmeguedm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,12 +15,14 @@
 NAME		=	phonebook
 
 CC			=	c++
-CPPFLAGS	=	-Wall -Wextra -Werror -std=c++98
+CPPFLAGS	=	-Wall -Wextra -Werror -std=c++98 -g3
 
 # --------- Sources files -----------------------------------------------------------
 
 SRCS =			main.cpp \
-				PhoneBook.cpp
+				action.cpp \
+				PhoneBook.cpp \
+				Contact.cpp
 
 # --------- Compiling ---------------------------------------------------------------
 
