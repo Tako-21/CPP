@@ -6,7 +6,7 @@
 #    By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/12 18:59:31 by mmeguedm          #+#    #+#              #
-#    Updated: 2023/09/14 20:12:13 by mmeguedm         ###   ########.fr        #
+#    Updated: 2023/09/18 14:03:55 by mmeguedm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,9 +19,8 @@ CPPFLAGS	=	-Wall -Wextra -Werror -std=c++98 -g3
 
 # --------- Sources files -----------------------------------------------------------
 
-SRCS =			main.cpp \
-				action.cpp \
-				PhoneBook.cpp \
+SRCS =			main.cpp		\
+				PhoneBook.cpp	\
 				Contact.cpp
 
 # --------- Compiling ---------------------------------------------------------------
@@ -42,6 +41,13 @@ $(NAME) :		$(OBJ)
 # --------- Phony targets -----------------------------------------------------------
 
 all :			$(NAME)
+
+wf : $(NAME)
+
+wf : CPPFLAGS = -g3
+
+flags : CPPFLAGS = -g3
+
 
 clean :
 		@rm -rf $(OBJ)

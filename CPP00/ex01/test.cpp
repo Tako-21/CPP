@@ -1,25 +1,11 @@
-#include <stdio.h>
+#include <iostream>
+#include <iomanip>
+using namespace std;
 
-int test1()
-{
-  printf("hello\n");
-  return 0;
-}
-
-int test2()
-{
-  printf("world\n");
-  return 1;
-}
-
-int main()
-{
-  int n = -15;
-
-  int (*(functions[2]))() = {test1, test2};
-
-  n = functions[0]();
-
-  printf("%d\n", n);
+int main () {
+  cout << setw(21) << left << "Test"    << 1 << endl;
+  cout << setw(21) << left << "Test2"   << 2 << endl;
+  cout << setw(21) << left << "Iamlongverylongblah"     << 2 << endl;
+  cout << setw(21) << left << "Etc"     << 1 << endl;
   return 0;
 }
