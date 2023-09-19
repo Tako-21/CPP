@@ -6,22 +6,21 @@
 #    By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/12 18:59:31 by mmeguedm          #+#    #+#              #
-#    Updated: 2023/09/19 14:39:03 by mmeguedm         ###   ########.fr        #
+#    Updated: 2023/09/19 14:56:11 by mmeguedm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # --------- Prerequisites ------------------------------------------------------
 
-NAME		=	phonebook
+NAME		=	account
 
 CC			=	c++
 CPPFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
 # --------- Sources files -----------------------------------------------------------
 
-SRCS =			main.cpp		\
-				PhoneBook.cpp	\
-				Contact.cpp
+SRCS =			Account.cpp	\
+				tests.cpp
 
 # --------- Compiling ---------------------------------------------------------------
 
@@ -42,7 +41,7 @@ $(NAME) :		$(OBJ)
 
 all :			$(NAME)
 
-wf : $(NAME)
+wf :			$(NAME)
 
 wf : CPPFLAGS = -g3
 

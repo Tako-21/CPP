@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 11:52:29 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/09/19 14:09:39 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/09/19 14:36:01 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,9 @@ PhoneBook::PhoneBook( int nbContacts ) :
 _nbContacts(nbContacts) {
 	this->displayWelcome();
 	this->getAction();
-	// std::cout << "Constructor Called" << std::endl;
 }
 
-PhoneBook::~PhoneBook( void )
-{
-	// std::cout << "Destructor Called" << std::endl;
-}
+PhoneBook::~PhoneBook( void ){}
 
 void	PhoneBook::addAction( int *i )
 {
@@ -76,8 +72,6 @@ void	PhoneBook::addAction( int *i )
 	std::cout << "Back to main menu" << std::endl << std::endl;
 	this->setNbContacts();
 	(*i)++;
-	// phonebook.contacts[0] = contact;
-	// std::cout << phonebook.contacts[0].getFirstName();
 }
 
 void	PhoneBook::getAction( void ) {
@@ -110,7 +104,6 @@ void	PhoneBook::getAction( void ) {
 	}
 }
 
-
 std::string truncate(std::string str, size_t width)
 {
 	if (str.length() > width)
@@ -139,7 +132,6 @@ bool	PhoneBook::displayContacts( void ) const
 
 	while (i < this->_nbContacts)
 	{
-		// std::cout << "|";
 		std::cout << std::setw(8) << "[" << i + 1 << "]" "|";
 		std::cout << std::setw(10) << truncate(this->_contacts[i].getFirstName(), 9) << "|";
 		std::cout << std::setw(10) << truncate(this->_contacts[i].getLastName(), 9) << "|";		
