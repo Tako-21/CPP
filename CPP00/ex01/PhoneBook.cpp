@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 11:52:29 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/09/18 19:35:12 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/09/19 14:09:39 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 #include <ios>
 #include "PhoneBook.hpp"
 #include <iomanip>
+#include <stdlib.h>
 
-PhoneBook::PhoneBook( void )
-{
+PhoneBook::PhoneBook( int nbContacts ) :
+_nbContacts(nbContacts) {
 	this->displayWelcome();
 	this->getAction();
 	// std::cout << "Constructor Called" << std::endl;
@@ -28,17 +29,76 @@ PhoneBook::~PhoneBook( void )
 	// std::cout << "Destructor Called" << std::endl;
 }
 
+void	PhoneBook::addAction( int *i )
+{
+	std::string	tmp;
+	int	phonenumber;
+
+	if (*i == 8) {
+		std::cout << std::endl	<< "Warning : The maximum of contacts has been reached" << std::endl
+								<< "The oldest contact will be remplaced by the new one" << std::endl << std::endl;
+		this->_nbContacts--;
+		*i = 0;
+	}
+	std::cout << ("What's your name ? ") << std::endl;
+	if (!(std::cin >> tmp))
+		exit(-1);
+	_contacts[*i].setFirstName(tmp);
+	
+	std::cout << ("What's your last name ?") << std::endl;
+	if (!(std::cin >> tmp))
+		exit(-1);
+	_contacts[*i].setLastName(tmp);
+	
+	std::cout << ("What's your nickname ?") << std::endl;
+	if (!(std::cin >> tmp))
+		exit(-1);
+	_contacts[*i].setNickName(tmp);
+	
+	while (true) 	
+	{
+		std::cout << ("What's the phone number ?") << std::endl;
+		if (!(std::cin >> phonenumber)) {
+			std::cout << std::endl << "Incorrect input" << std::endl;
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		}
+		else
+			break ;
+	}
+	_contacts[*i].setPhoneNumber(phonenumber);
+	std::cout << ("What's your darkest secret ?") << std::endl;
+	if (!(std::cin >> tmp))
+		exit(-1);
+	_contacts[*i].setDarkestSecret(tmp);
+
+	std::cout << std::endl <<  "Contact have been successfully added" << std::endl;
+	std::cout << "Back to main menu" << std::endl << std::endl;
+	this->setNbContacts();
+	(*i)++;
+	// phonebook.contacts[0] = contact;
+	// std::cout << phonebook.contacts[0].getFirstName();
+}
+
 void	PhoneBook::getAction( void ) {
+	int			i;
 	std::string	user_input;
 	
-	while (user_input.compare("EXIT"))
+	i = 0;
+	while (true)
 	{
 		std::cout << ("What do you want to do ? : ") << std::endl;
-		std::cin >> user_input;
+		if (!(std::cin >> user_input)) {
+			exit(-1);
+		}
+		if (user_input == "")
+			 ;
 		if (!user_input.compare("ADD"))
-			this->addAction();
+			this->addAction(&i);
 		else if (!user_input.compare("SEARCH"))
 			this->searchAction();
+		else if (!user_input.compare("EXIT"))
+			break ;
 		else
 		{
 			std::cout << std::endl << ("Incorrect input") << std::endl;
@@ -50,74 +110,51 @@ void	PhoneBook::getAction( void ) {
 	}
 }
 
-void	PhoneBook::addAction( void )
+
+std::string truncate(std::string str, size_t width)
 {
-	int	i;
-
-	i = 0;
-	std::string	tmp;
-	int	phonenumber;
-
-	std::cout << ("What's your name ? ") << std::endl;
-	std::cin >> tmp;
-	_contacts[i].setFirstName(tmp);
-	
-	std::cout << ("What's your last name ?") << std::endl;
-	std::cin >> tmp;
-	_contacts[i].setLastName(tmp);
-	
-	std::cout << ("What's your nickname ?") << std::endl;
-	std::cin >> tmp;
-	_contacts[i].setNickName(tmp);
-	
-	std::cout << ("What's the phone number ?") << std::endl;
-	std::cin >> phonenumber;
-	_contacts[i].setPhoneNumber(phonenumber);
-	
-	std::cout << ("What's your darkest secret ?") << std::endl;
-	std::cin >> tmp;
-	_contacts[i].setDarkestSecret(tmp);
-
-	std::cout << "Contact have been successfully added" << std::endl;
-	std::cout << "Back to main menu" << std::endl;
-	std::cout << _contacts[i].getFirstName() << std::endl;
-	// phonebook.contacts[0] = contact;
-	// std::cout << phonebook.contacts[0].getFirstName();
+	if (str.length() > width)
+		return str.substr(0, width) + ".";
+	else
+		return str;
 }
 
-// std::string truncate(std::string str, size_t width)
-// {
-// 	if (str.length() > width)
-// 		return str.substr(0, width) + ".";
-// 	else
-// 		return str;
-// }
-
-void	PhoneBook::displayContact( void ) const
+bool	PhoneBook::displayContacts( void ) const
 {
 	int	i;
 
 	i = 0;
-	// std::cout << std::endl << std::endl;
-	// std::cout << std::setw(10) << std::left << "|  INDEX  " << "|";
-	// std::cout << std::setw(10) << " FIRST NAME " << "|";
-	// std::cout << std::setw(10) << " LAST NAME " << "|";
-	// std::cout << std::setw(10) << " NICK NAME |" << std::endl;
+	if (!this->_nbContacts)
+	{
+		std::cout	<< std::endl
+					<< "No contact has been added yet." << std::endl
+					<< "You can save a contact with the command \"ADD\"." << std::endl << std::endl; 
+		return (false);
+	}
+	std::cout << std::endl << std::endl;
+	std::cout << std::setw(10) << "INDEX" << "|";
+	std::cout << std::setw(10) << "FIRST NAME" << "|";
+	std::cout << std::setw(10) << "LAST NAME" << "|";
+	std::cout << std::setw(10) << "NICK NAME" << "|" << std::endl;
 
-	// while (i < 7)
-	// {
-	// 	std::cout << "    " << "[" << i << "]";
-	// 	std::cout << "   ";
-	// 	// std::cout << std::setw(10);
-	// 	std::cout << "| " << std::right << truncate(this->_contacts[i].getFirstName(), 9);
-	// 	std::cout << std::setfill (' ') << std::setw(10);
-	// 	std::cout << "| " << std::right << truncate(this->_contacts[i].getLastName(), 9);
-	// 	std::cout << std::setfill (' ') << std::setw(10);
-	// 	std::cout << "| " << std::right << truncate(this->_contacts[i].getNickName(), 9) << std::endl;
-	// 	std::cout << " |";
-	// 	i++;
-	// }
+	while (i < this->_nbContacts)
+	{
+		// std::cout << "|";
+		std::cout << std::setw(8) << "[" << i + 1 << "]" "|";
+		std::cout << std::setw(10) << truncate(this->_contacts[i].getFirstName(), 9) << "|";
+		std::cout << std::setw(10) << truncate(this->_contacts[i].getLastName(), 9) << "|";		
+		std::cout << std::setw(10) << truncate(this->_contacts[i].getNickName(), 9) << "|" << std::endl;
+		i++;
+	}
+	return (true);
+}
 
+void	PhoneBook::displayIndex( int index ) const {
+	std::cout << "First Name     : " << this->_contacts[index].getFirstName() << std::endl;
+	std::cout << "Last Name      : " << this->_contacts[index].getLastName() << std::endl;
+	std::cout << "Nick Name      : " << this->_contacts[index].getNickName() << std::endl;
+	std::cout << "Phone Number   : " <<  this->_contacts[index].getPhoneNumber() << std::endl;
+	std::cout << "Darkest Secret : " <<  this->_contacts[index].getDarkestSecret() << std::endl << std::endl;
 }
 
 void	PhoneBook::searchAction( void )
@@ -125,7 +162,8 @@ void	PhoneBook::searchAction( void )
 	int	index;
 
 	index = 0;
-	this->displayContact();
+	if (!this->displayContacts())
+		return ;
 	std::cout << std::endl;
 	while (true) 	
 	{
@@ -135,9 +173,12 @@ void	PhoneBook::searchAction( void )
 			std::cin.clear();
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		}
+		else if (index <= 0 || index > this->_nbContacts)
+			std::cout << "Index out of range" << std::endl;
 		else
 			break ;	
 	}
+	this->displayIndex( index - 1 );
 }
 
 void	PhoneBook::displayWelcome( void ) const {
@@ -147,3 +188,12 @@ void	PhoneBook::displayWelcome( void ) const {
 	std::cout << ("-SEARCH (display a specific contact)") << std::endl;
 	std::cout << ("-EXIT (leave the program)") << std::endl << std::endl;
 }
+
+void	PhoneBook::setNbContacts( void ) {
+	this->_nbContacts++;
+}
+
+int	PhoneBook::getNbContacts( void ) const {
+	return  (this->_nbContacts);
+}
+

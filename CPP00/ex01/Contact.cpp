@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 14:39:11 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/09/18 13:57:30 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/09/19 13:25:24 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ std::string	Contact::getNickName( void ) const {
 	return (this->_nickname);
 }
 
-std::string	Contact::getPhoneNumber( void ) const {
+int	Contact::getPhoneNumber( void ) const {
 	return (this->_phonenumber);
 }
 

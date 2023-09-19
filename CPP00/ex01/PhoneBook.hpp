@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 11:35:45 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/09/18 17:10:08 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/09/19 13:58:01 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,19 @@
 
 class PhoneBook {
 	public :
-		PhoneBook( void );
+		PhoneBook( int nbContacts );
 		~PhoneBook( void );
-		void	addAction( void );
+		void	addAction( int *i );
 		void	searchAction( void );
 		void	getAction( void );
-		void	displayContact( void ) const;
+		bool	displayContacts( void ) const;
 		void	displayWelcome( void ) const;
+		void	displayIndex( int index ) const;
+		void	setNbContacts( void );
+		int		getNbContacts( void ) const;
 	private :
 		Contact	_contacts[8];
+		int		_nbContacts;
 };
 
 #endif
