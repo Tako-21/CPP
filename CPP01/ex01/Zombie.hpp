@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 12:11:26 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/09/20 16:09:45 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/09/20 19:36:51 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ public :
 	~Zombie( void );
 	void	announce( void );
 	void	setName( std::string name );
+	int		&test( void );
+	int a;
 
 private : 
 	std::string	_name;

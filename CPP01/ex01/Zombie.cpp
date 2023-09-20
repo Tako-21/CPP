@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 12:10:38 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/09/20 16:11:08 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/09/20 19:36:48 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 #include <iostream>
 
 Zombie::Zombie(){
+	this->a = 21;
 }
 
 Zombie::Zombie( std::string name) {
 
+	this->a = 21;
 	this->_name = name;
 }
 
@@ -34,4 +36,8 @@ void Zombie::announce( void ) {
 void	Zombie::setName( std::string name ) {
 	
 	this->_name = name;
+}
+
+int		&Zombie::test( void ) {
+	return (this->a);
 }

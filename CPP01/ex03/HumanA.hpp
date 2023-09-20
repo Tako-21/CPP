@@ -1,37 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 12:10:42 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/09/20 19:36:07 by mmeguedm         ###   ########.fr       */
+/*   Created: 2023/09/20 18:16:43 by mmeguedm          #+#    #+#             */
+/*   Updated: 2023/09/20 18:17:06 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Zombie.hpp"
+#ifndef	__HUMAN_A_HPP__
+#define	__HUMAN_A_HPP__
 
-int	main( void ) {
-
-	Zombie *zombie;
-	int	N;
-
-	N = 3;
-	zombie = zombieHorde(N, "kinooo");
-
-	for (int i = 0; i < N; i++) {
-		zombie[i].announce();
-	}
-	
-
-	int nb = 4;
-
-	nb = zombie[0].test();
-	// zombie[0].test() = 4;
-	std::cout << nb << std::endl;
-	delete [] zombie;
-
-
-}
+#endif /* __HUMAN_A_HPP__*/
