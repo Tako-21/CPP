@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmeguedm <mmeguedm@student42.fr>           +#+  +:+       +#+        */
+/*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 14:38:36 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/09/19 22:23:05 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/09/20 11:11:53 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,25 @@
 
 Account::Account( int initial_deposit ) {
 
-	Account::_amount = initial_deposit;
+	this->_amount = initial_deposit;
 	Account::_totalAmount += initial_deposit;
 
-	std::cout << "index:" << Account::getNbAccounts() << ";";
-	std::cout << "amount:" << Account::checkAmount() << ";created" << std::endl;
 	_accountIndex = Account::_nbAccounts++;
-
-
-	this->_accountIndex = 0;
-	this->_amount = 0;
-	this->_nbDeposits = 0;
-	this->_nbWithdrawals = 0;
-
-
-
-
+	std::cout << "index:" << _accountIndex << ";";
+	std::cout << "amount:" << Account::checkAmount() << ";created" << std::endl;
 }
 
-Account::~Account( void ) {}
+Account::~Account( void ) {
+	std::cout	<< "index:"
+				<< this->_accountIndex << ";"
+
+				<< "amount:"
+				<< this->_amount + this->_nbDeposits - this->_nbWithdrawals << ";"
+
+				<< "closed"
+
+				<< std::endl;
+}
 
 int	Account::getNbAccounts( void ) {
 	return (Account::_nbAccounts);
@@ -63,32 +63,95 @@ void	Account::displayAccountsInfos( void ) {
 				<< Account::getNbDeposits() << ";"
 
 				<< "withdrawals:"
-				<<Account::getNbWithdrawals();
-				std::cout << std::endl;
-				// << Account::getTotalAmount()
-				// << Account::getNbDeposits()
-				// << Account::getNbWithdrawals()
-				// << std::endl;
+				<<Account::getNbWithdrawals()
+				
+				<< std::endl;
+}
+
+void	Account::displayStatus( void ) const {
+	
+	std::cout	<< "index:"
+				<< this->_accountIndex << ";"
+
+				<< "amount:"
+				<< this->_amount + this->_nbDeposits - this->_nbWithdrawals<< ";";
+
+	std::cout	<< "deposits:";
+	if (this->_nbDeposits)
+		std::cout << "1";
+	else
+		std::cout << "0";
+	std::cout << ";";
+	if (this->_nbWithdrawals > 0)
+		std::cout	<< "withdrawals:"
+					<< "1";
+	else
+		std::cout	<< "withdrawals:"
+					<< "0";
+	std::cout << std::endl;
 }
 
 void	Account::makeDeposit( int deposit ) {
+	// std::cout << "DEPOSIT : " << deposit << std::endl;
 	this->_nbDeposits = deposit;
-	Account::_totalNbDeposits += deposit;
+	Account::_totalNbDeposits++;
+	this->_totalAmount += deposit;
+	std::cout	<< "index:"
+				<< this->_accountIndex << ";"
+
+				<< "p_amount:"
+				<< this->_amount << ";"
+
+				<< "deposit:"
+				<< deposit << ";"
+				
+				<< "amount:"
+				<< this->_amount + deposit << ";"
+				
+				<< "nb_deposits:"
+				<< "1"
+				
+				<< std::endl;
+				
 }
 
 bool	Account::makeWithdrawal( int withdrawal ) {
-	if (withdrawal > this->_totalAmount)
+	if (withdrawal > this->_amount + this->_nbDeposits)
+	{
+		std::cout	<< "index:"
+					<< this->_accountIndex << ";"	
+					<< "p_amount:"
+					<< this->_amount + this->_nbDeposits << ";"	
+					<< "withdrawal:refused"
+
+					<< std::endl;
+
 		return (false);
+	}
+	this->_nbWithdrawals = withdrawal;
 	Account::_totalNbWithdrawals++;
+	this->_totalAmount -= withdrawal;
+
+	std::cout	<< "index:"
+				<< this->_accountIndex << ";"	
+				<< "p_amount:"
+				<< this->_amount + this->_nbDeposits << ";"	
+				<< "withdrawal:"
+				<< withdrawal << ";"
+
+				<< "amount:"
+				<< this->_amount + this->_nbDeposits - withdrawal << ";"
+
+				<< "nb_withdrawals:"
+				<< "1"
+
+				<< std::endl;
 	return (true);
 }
 
 int		Account::checkAmount( void ) const {
+	// this->_amount = 
 	return (Account::_amount);
-}
-
-void	Account::displayStatus( void ) const {
-
 }
 
 int	Account::_nbAccounts = 0;
