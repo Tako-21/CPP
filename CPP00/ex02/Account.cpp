@@ -6,15 +6,34 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 14:38:36 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/09/20 11:11:53 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/09/20 12:01:30 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Account.hpp"
+#include <iomanip>
+
+static void	display_time(void)
+{
+	const time_t	now = time(0);
+	tm				*ltm = localtime(&now);
+
+	std::cout << "[";
+    std::cout << 1900 + ltm->tm_year;
+    // month starts at 0;
+    std::cout << std::setfill('0') << std::setw(2) << 1 + ltm->tm_mon;
+    std::cout << std::setfill('0') << std::setw(2) << ltm->tm_mday;
+    std::cout << "_";
+    std::cout << std::setfill('0') << std::setw(2) << ltm->tm_hour;
+    std::cout << std::setfill('0') << std::setw(2) << ltm->tm_min;
+    std::cout << std::setfill('0') << std::setw(2) << ltm->tm_sec;
+    std::cout << "] ";
+}
 
 Account::Account( int initial_deposit ) {
 
+	display_time();
 	this->_amount = initial_deposit;
 	Account::_totalAmount += initial_deposit;
 
@@ -24,6 +43,8 @@ Account::Account( int initial_deposit ) {
 }
 
 Account::~Account( void ) {
+	
+	display_time();
 	std::cout	<< "index:"
 				<< this->_accountIndex << ";"
 
@@ -31,7 +52,6 @@ Account::~Account( void ) {
 				<< this->_amount + this->_nbDeposits - this->_nbWithdrawals << ";"
 
 				<< "closed"
-
 				<< std::endl;
 }
 
@@ -52,7 +72,8 @@ int	Account::getNbWithdrawals( void ) {
 }
 
 void	Account::displayAccountsInfos( void ) {
-
+	
+	display_time();
 	std::cout	<< "accounts:"
 				<< Account::_nbAccounts << ";"
 
@@ -70,6 +91,7 @@ void	Account::displayAccountsInfos( void ) {
 
 void	Account::displayStatus( void ) const {
 	
+	display_time();
 	std::cout	<< "index:"
 				<< this->_accountIndex << ";"
 
@@ -93,6 +115,7 @@ void	Account::displayStatus( void ) const {
 
 void	Account::makeDeposit( int deposit ) {
 	// std::cout << "DEPOSIT : " << deposit << std::endl;
+	display_time();
 	this->_nbDeposits = deposit;
 	Account::_totalNbDeposits++;
 	this->_totalAmount += deposit;
@@ -116,6 +139,8 @@ void	Account::makeDeposit( int deposit ) {
 }
 
 bool	Account::makeWithdrawal( int withdrawal ) {
+	
+	display_time();
 	if (withdrawal > this->_amount + this->_nbDeposits)
 	{
 		std::cout	<< "index:"
