@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 18:15:15 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/09/20 19:16:08 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/09/21 16:22:18 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,17 @@ class Weapon {
 
 
 public :
-	
-	std::string&	getType( void );
 
+	Weapon();
+	Weapon( std::string type );
+	~Weapon( void );
+
+	std::string const &	getType( void ) const;
+	void			setType( std::string  const & type);
 
 private :
 	
-	std::string	str;
+	std::string	_type;
 };
 
 #endif	/* __WEAPON_HPP__ */

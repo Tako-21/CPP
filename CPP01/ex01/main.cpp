@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 12:10:42 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/09/20 19:36:07 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/09/21 14:28:36 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,6 @@ int	main( void ) {
 	for (int i = 0; i < N; i++) {
 		zombie[i].announce();
 	}
-	
 
-	int nb = 4;
-
-	nb = zombie[0].test();
-	// zombie[0].test() = 4;
-	std::cout << nb << std::endl;
 	delete [] zombie;
-
-
 }

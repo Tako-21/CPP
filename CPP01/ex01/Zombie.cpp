@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 12:10:38 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/09/20 19:36:48 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/09/21 14:28:43 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,4 @@ void Zombie::announce( void ) {
 void	Zombie::setName( std::string name ) {
 	
 	this->_name = name;
-}
-
-int		&Zombie::test( void ) {
-	return (this->a);
 }
