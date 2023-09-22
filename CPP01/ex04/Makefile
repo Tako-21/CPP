@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+         #
+#    By: mmeguedm <mmeguedm@student42.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/12 18:59:31 by mmeguedm          #+#    #+#              #
-#    Updated: 2023/09/21 17:03:59 by mmeguedm         ###   ########.fr        #
+#    Updated: 2023/09/22 13:02:36 by mmeguedm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 
 NAME		= sed
 
-CC			= c++
+CC			= g++
 CPPFLAGS		= -Wall -Wextra -Werror -std=c++98
 
 # --------- Sources files -----------------------------------------------------------
