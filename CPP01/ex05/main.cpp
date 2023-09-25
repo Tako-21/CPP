@@ -5,28 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/21 17:07:25 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/09/25 12:50:09 by mmeguedm         ###   ########.fr       */
+/*   Created: 2023/09/25 12:54:22 by mmeguedm          #+#    #+#             */
+/*   Updated: 2023/09/25 14:17:36 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <iostream>
-# include <string>
-# include <fstream>
+#include "Harl.hpp" 
 
-# include "Sed.hpp"
-
-int	main( int argc, char **argv )
+int	main( void )
 {
-	if (argc != 4)
-		return (-1);
+	Harl	harl;
 
-	std::string		filename = argv[1];
-	filename.append(".replace");
-
-	std::string		line;
-	std::ifstream	const infile (argv[1]);
-	std::ofstream	const outfile (filename);
-
-	Sed	sed( infile, outfile, argv[2], argv[3] );
+	harl.complain("DEBUG");
+	return (21);
 }

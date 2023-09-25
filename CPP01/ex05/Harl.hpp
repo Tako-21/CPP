@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/21 17:07:25 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/09/25 12:50:09 by mmeguedm         ###   ########.fr       */
+/*   Created: 2023/09/25 12:55:06 by mmeguedm          #+#    #+#             */
+/*   Updated: 2023/09/25 14:34:49 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef __HARL_HPP__
+#define __HARL_HPP__
+
 # include <iostream>
-# include <string>
-# include <fstream>
 
-# include "Sed.hpp"
+class Harl {
 
-int	main( int argc, char **argv )
-{
-	if (argc != 4)
-		return (-1);
 
-	std::string		filename = argv[1];
-	filename.append(".replace");
+public :
 
-	std::string		line;
-	std::ifstream	const infile (argv[1]);
-	std::ofstream	const outfile (filename);
+	Harl( void );
+	~Harl( void );
 
-	Sed	sed( infile, outfile, argv[2], argv[3] );
-}
+	void	complain( std::string level );
+
+private :
+
+	void	_debug( void );
+	void	_info( void );
+	void	_warning( void );
+	void	_error( void );
+};
+
+
+#endif /* __HARL_HPP__*/
