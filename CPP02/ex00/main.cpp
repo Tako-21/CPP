@@ -5,17 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/25 12:54:22 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/09/25 14:47:04 by mmeguedm         ###   ########.fr       */
+/*   Created: 2023/09/26 12:00:56 by mmeguedm          #+#    #+#             */
+/*   Updated: 2023/09/26 14:29:14 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp" 
+#include "Fixed.hpp"
+#include <iostream>
 
-int	main( int argc, char **argv )
+int	main( void )
 {
-	Harl	harl;
-
-	harl.complain("DEBUG");
-	return (21);
+	Fixed a;
+	Fixed b( a );
+	Fixed c;
+	c = b;
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
+	
+	// Fixed	fixed1(2);
+	// Fixed	fixed2(1);
+	// Fixed	fixed3 = fixed1;
+	
+	// fixed1 = fixed2;
 }
