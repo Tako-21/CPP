@@ -1,21 +1,15 @@
 #include <iostream>
 #include <stdio.h>
-
-void	capitalize(char *c, char ***argv){
-	if ((*c >= 'a' && *c <= 'z'))
-		std::cout << (char)(*c - 32);
-	else if ((*c >= 32 && *c <= 127))
-		std::cout << (char)(*c);
-	(**argv)++;
-}
+#include <cctype>
 
 int	main(int argc, char **argv)
 {
 	argv++;
 	if (argc < 2)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-	for (; *argv; argv++){
-		for (; (**argv); capitalize(&(**argv), &argv));
+	for (int i = 0; argv[i]; i++){
+		for (int j = 0; argv[i][j]; j++)
+			std::cout << (char)toupper(argv[i][j]);
 	}
 	std::cout << std::endl;
 }

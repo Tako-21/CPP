@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 11:52:29 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/09/29 17:45:04 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/09/29 18:06:41 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <ios>
 #include "PhoneBook.hpp"
 #include <iomanip>
-#include <stdlib.h>
+#include <cstdlib>
 
 PhoneBook::PhoneBook( int nbContacts ) :
 _nbContacts(nbContacts) {
@@ -137,27 +137,25 @@ void	PhoneBook::displayIndex( int index ) const {
 	std::cout << "First Name     : " << this->_contacts[index].getFirstName() << std::endl;
 	std::cout << "Last Name      : " << this->_contacts[index].getLastName() << std::endl;
 	std::cout << "Nick Name      : " << this->_contacts[index].getNickName() << std::endl;
-	std::cout << "Phone Number   : " <<  this->_contacts[index].getPhoneNumber() << std::endl;
-	std::cout << "Darkest Secret : " <<  this->_contacts[index].getDarkestSecret() << std::endl << std::endl;
+	std::cout << "Phone Number   : " << this->_contacts[index].getPhoneNumber() << std::endl;
+	std::cout << "Darkest Secret : " << this->_contacts[index].getDarkestSecret() << std::endl << std::endl;
 }
 
 void	PhoneBook::searchAction( void )
 {
-	int	index;
-
-	index = 0;
+	std::string	index_str;
+	int			index;
+	
 	if (!this->displayContacts())
 		return ;
 	std::cout << std::endl;
-	while (true) 	
+	while (true)
 	{
 		std::cout << "What's the index of the entry that you would want to display" << std::endl;
-		if (!(std::cin >> index)) {
-			std::cout << std::endl << "Incorrect input" << std::endl;
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		}
-		else if (index <= 0 || index > this->_nbContacts)
+		if (!(std::cin >> index_str))
+			exit(-1);
+		index = atoi(index_str.c_str());
+		if (index <= 0 || index > this->_nbContacts)
 			std::cout << "Index out of range" << std::endl;
 		else
 			break ;	
