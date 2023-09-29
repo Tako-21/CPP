@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 14:39:11 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/09/19 13:25:24 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/09/29 17:27:40 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void Contact::setNickName( std::string nickname ) {
 	this->_nickname = nickname;
 }
 
-void Contact::setPhoneNumber( int phonenumber ) {
+void Contact::setPhoneNumber( std::string phonenumber ) {
 	this->_phonenumber = phonenumber;
 }
 
@@ -53,7 +53,7 @@ std::string	Contact::getNickName( void ) const {
 	return (this->_nickname);
 }
 
-int	Contact::getPhoneNumber( void ) const {
+std::string	Contact::getPhoneNumber( void ) const {
 	return (this->_phonenumber);
 }
 

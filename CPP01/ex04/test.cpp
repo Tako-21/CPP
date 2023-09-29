@@ -25,7 +25,7 @@ private :
 
 Sed::Sed( std::ifstream& infile, std::ofstream& outfile, std::string occurence, std::string replaced ) :
 _infile(infile),
-_outfile(outfile),
+_outfile(outfile), 
 _occurence(occurence),
 _replaced(replaced) {
 

@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 12:54:22 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/09/25 18:25:54 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/09/29 16:29:51 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,6 @@
 int	main( int argc, char **argv )
 {
 	Harl	harl;
-
-	harl.a = 21;
-	std::cout << harl.a << std::endl;
-	Harl	harl2 = harl;
-	harl2.a = 42;
-	harl2.a = 42;
-	std::cout << harl2.a << std::endl;
 	
 	if ( argc > 2 ) {
 		std::cout << "The are too many arguments in program call." << std::endl;

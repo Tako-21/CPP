@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 12:01:09 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/09/26 18:33:35 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/09/26 18:34:20 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ public:
 	
 	
 	Fixed& operator=( const Fixed& fixed );
-	Fixed	operator++( int );
+	Fixed		operator++( int );
 	int		toInt( void ) const;
 	float	toFloat( void ) const;
 	int		getRawBits( void ) const;

@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 11:52:29 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/09/19 14:36:01 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/09/29 17:45:04 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,8 @@ PhoneBook::~PhoneBook( void ){}
 void	PhoneBook::addAction( int *i )
 {
 	std::string	tmp;
-	int	phonenumber;
 
-	if (*i == 8) {
+	if (*i == MAXIMUM_CONTACTS) {
 		std::cout << std::endl	<< "Warning : The maximum of contacts has been reached" << std::endl
 								<< "The oldest contact will be remplaced by the new one" << std::endl << std::endl;
 		this->_nbContacts--;
@@ -50,19 +49,11 @@ void	PhoneBook::addAction( int *i )
 	if (!(std::cin >> tmp))
 		exit(-1);
 	_contacts[*i].setNickName(tmp);
-	
-	while (true) 	
-	{
-		std::cout << ("What's the phone number ?") << std::endl;
-		if (!(std::cin >> phonenumber)) {
-			std::cout << std::endl << "Incorrect input" << std::endl;
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		}
-		else
-			break ;
-	}
-	_contacts[*i].setPhoneNumber(phonenumber);
+
+	std::cout << ("What's the phone number ?") << std::endl;
+	if (!(std::cin >> tmp))
+		exit(-1);
+	_contacts[*i].setPhoneNumber(tmp);
 	std::cout << ("What's your darkest secret ?") << std::endl;
 	if (!(std::cin >> tmp))
 		exit(-1);
@@ -70,7 +61,9 @@ void	PhoneBook::addAction( int *i )
 
 	std::cout << std::endl <<  "Contact have been successfully added" << std::endl;
 	std::cout << "Back to main menu" << std::endl << std::endl;
-	this->setNbContacts();
+	if (this->_nbContacts != MAXIMUM_CONTACTS)
+		this->setNbContacts();
+	std::cout << "nbContacts : " << _nbContacts << std::endl;
 	(*i)++;
 }
 
@@ -82,11 +75,10 @@ void	PhoneBook::getAction( void ) {
 	while (true)
 	{
 		std::cout << ("What do you want to do ? : ") << std::endl;
-		if (!(std::cin >> user_input)) {
+		if (!(std::cin >> user_input))
 			exit(-1);
-		}
-		if (user_input == "")
-			 ;
+		// if (user_input == "")
+		// 	 ;
 		if (!user_input.compare("ADD"))
 			this->addAction(&i);
 		else if (!user_input.compare("SEARCH"))

@@ -13,7 +13,7 @@ int	main(int argc, char **argv)
 {
 	argv++;
 	if (argc < 2)
-		return (std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *", 0);
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
 	for (; *argv; argv++){
 		for (; (**argv); capitalize(&(**argv), &argv));
 	}

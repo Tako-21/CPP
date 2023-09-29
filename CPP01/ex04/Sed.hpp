@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sed.hpp                                            :+:      :+:    :+:   */
+/*   Sed.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmeguedm <mmeguedm@student42.fr>           +#+  +:+       +#+        */
+/*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 11:08:14 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/09/22 13:03:13 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/09/29 15:53:29 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@ class Sed {
 public :
 
 	// Sed( std::ifstream const infile, std::ofstream const outfile );
-	Sed( std::ifstream const & infile, std::ofstream const & outfile, std::string occurence, std::string replaced );
+	Sed( std::ifstream& infile, std::ofstream& outfile, std::string occurence, std::string replaced );
 	~Sed( void );
 
 	void sedReplace( void ) const;
 
 private :
 
-	std::ifstream const	& _infile;
-	std::ofstream const	& _outfile;
+	std::ifstream& _infile;
+	std::ofstream& _outfile;
 	std::string const	_occurence;
 	std::string const	_replaced;
 };

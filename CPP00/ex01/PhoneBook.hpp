@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 11:35:45 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/09/19 13:58:01 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/09/29 17:45:23 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include <functional>
 
 #include "Contact.hpp"
+
+# define MAXIMUM_CONTACTS 8
 
 class PhoneBook {
 	public :
