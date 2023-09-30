@@ -6,20 +6,23 @@
 #    By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/12 18:59:31 by mmeguedm          #+#    #+#              #
-#    Updated: 2023/09/30 21:18:30 by mmeguedm         ###   ########.fr        #
+#    Updated: 2023/09/30 19:46:45 by mmeguedm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # --------- Prerequisites ------------------------------------------------------
 
-NAME		= sed
+NAME		= bsp
 
 CC			= g++
-CPPFLAGS		= -Wall -Wextra -Werror -std=c++98
+CPPFLAGS		= -Wall -Wextra -Werror -std=c++98 -g3
 
 # --------- Sources files -----------------------------------------------------------
 
-SRCS =	main.cpp
+SRCS =	main.cpp	\
+		Fixed.cpp	\
+		Point.cpp	\
+		bsp.cpp
 
 # --------- Compiling ---------------------------------------------------------------
 
@@ -42,12 +45,7 @@ all :	$(NAME)
 
 wf :	$(NAME)
 
-debug : $(NAME)
-
-debug : CPPFLAGS = -g3 -Wall
-
 wf : CPPFLAGS =
-
 clean :
 		@rm -rf $(OBJ)
 		@echo "Deleting objects files"

@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/26 12:01:09 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/09/30 16:03:50 by mmeguedm         ###   ########.fr       */
+/*   Created: 2023/09/30 19:47:42 by mmeguedm          #+#    #+#             */
+/*   Updated: 2023/09/30 20:13:40 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	__FIXED_HPP__
-#define __FIXED_HPP__
+#ifndef __POINT_HPP__
+#define __POINT_HPP__
 
-class Fixed {
+#include "Fixed.hpp"
+
+class Point {
 
 
 public:
-
-	Fixed( void );
-	~Fixed( void );
-	Fixed( const Fixed& );
-	Fixed& operator=( const Fixed& fixed );
-	int getRawBits( void ) const;
-	void setRawBits( int const raw );
+	Point( void );
+	Point( const Fixed x, const Fixed y );
+	~Point( void );
 
 private:
+	Fixed const _x;
+	Fixed const _y;
 
-	int			_fixed_point_value;
-	static int	_frc_bits;
 };
 
-#endif /* __FIXED_HPP__ */
+#endif /* __POINT_HPP__ */

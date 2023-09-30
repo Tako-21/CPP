@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 11:52:29 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/09/29 18:06:41 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/09/30 18:28:11 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,6 @@ void	PhoneBook::getAction( void ) {
 		std::cout << ("What do you want to do ? : ") << std::endl;
 		if (!(std::cin >> user_input))
 			exit(-1);
-		// if (user_input == "")
-		// 	 ;
 		if (!user_input.compare("ADD"))
 			this->addAction(&i);
 		else if (!user_input.compare("SEARCH"))
