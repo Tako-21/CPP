@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 12:55:06 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/09/25 14:34:49 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/01 16:48:39 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ public :
 	Harl( void );
 	~Harl( void );
 
+	void	complain( const char* level );
 	void	complain( std::string level );
 
 private :

@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 12:54:22 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/09/29 16:28:08 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/01 17:23:08 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ int	main( void )
 	harl.complain("INFO");
 	harl.complain("WARNING");
 	harl.complain("ERROR");
-	harl.complain("ERROOR");
+	harl.complain(NULL);
 	return (21);
 }

@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 12:10:42 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/09/21 14:28:36 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/01 15:08:24 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 int	main( void ) {
 
-	Zombie *zombie;
-	int	N;
+	Zombie	*zombie;
+	int		N;
 
 	N = 3;
 	zombie = zombieHorde(N, "kinooo");

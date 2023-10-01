@@ -6,7 +6,7 @@
 #    By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/12 18:59:31 by mmeguedm          #+#    #+#              #
-#    Updated: 2023/09/25 13:17:11 by mmeguedm         ###   ########.fr        #
+#    Updated: 2023/10/01 16:19:32 by mmeguedm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 NAME		= harl
 
 CC			= g++
-CPPFLAGS		= -Wall -Wextra -Werror -std=c++98
+CPPFLAGS		= -Wall -Wextra -Werror -std=c++98 -g3
 
 # --------- Sources files -----------------------------------------------------------
 
@@ -43,7 +43,13 @@ all :	$(NAME)
 
 wf :	$(NAME)
 
+debug : $(NAME)
+
+debug : CPPFLAGS += -fsanitize=address -g3
+
 wf : CPPFLAGS =
+
+
 clean :
 		@rm -rf $(OBJ)
 		@echo "Deleting objects files"

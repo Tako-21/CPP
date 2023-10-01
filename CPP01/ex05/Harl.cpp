@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 12:54:51 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/09/25 14:34:57 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/01 16:50:14 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,17 @@
 Harl::Harl( void ) {}
 
 Harl::~Harl( void ) {}
+
+void	Harl::complain( const char* level ) {
+
+	std::string	str;
+
+	str = level;
+	if (level == NULL)
+		return ;
+	else
+		Harl::complain( str );
+}
 
 void	Harl::complain( std::string level ) {
 	
@@ -32,7 +43,7 @@ void	Harl::complain( std::string level ) {
 	};
  
 	for ( int i = 0; i < 4; i++ ) {
-		if ( level == map_level[i] ) {			
+		if ( level == map_level[i] ) {
 			(this->*harlLevel[i])();
 			break ;
 		}
