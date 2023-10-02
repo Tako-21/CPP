@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 12:08:03 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/09/30 19:40:53 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/02 18:57:56 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 /*	Constructor / Copy Constructor / Destructor */
 Fixed::Fixed( void ) {
-
 	this->_fixed_point_value = 0;
 };
 
