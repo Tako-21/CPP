@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:29:38 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/09 19:23:59 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/09 19:20:44 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,35 +17,13 @@ Scavtrap::Scavtrap( std::string name ) : Claptrap(name)
 	std::cout << "Scavtrap Constructor Called" << std::endl;
 }
 
+Scavtrap::Scavtrap( void ) {}
+
 Scavtrap::~Scavtrap()
 {
-	std::cout << "Scavtrap Destructor Called" << std::endl;
+	std::cout << "Scavtrap died" << std::endl;
 }
 
-Scavtrap::Scavtrap() {}
-
-
-
-void	Scavtrap::guardGate()
-{
-	std::cout << " ScavTrap is now in Gate keeper mode." << std::endl;
-}
-
-void	Scavtrap::attack( const std::string& target )
-{
-	if (!this->_hit_points) {
-		std::cout << "Insufficient hit points" << std::endl;
-		return ;
-	}
-
-	if (!this->_energy_points) {
-		std::cout << "Insufficient energy points" << std::endl;
-		return ;
-	}
-	this->_hit_points -= this->_attack_damage;
-	this->_energy_points--;
-	std::cout << "Scavtrap " << this->_name << " attacks " << target <<  " causing " << this->_attack_damage << " points of damage" << std::endl;
-}
 
 Scavtrap&	Scavtrap::operator= ( const Scavtrap& obj)
 {
@@ -61,4 +39,27 @@ Scavtrap::Scavtrap(const Scavtrap& obj) : Claptrap(obj)
 {
 	*this = obj;
 	std::cout << "Copy completed succesfully with copy constructor" << std::endl;	
+}
+
+
+void	Scavtrap::attack( const std::string& target )
+{
+	if (!this->_hit_points) {
+		std::cout << "Insufficient hit points" << std::endl;
+		return ;
+	}
+
+	if (!this->_energy_points) {
+		std::cout << "Insufficient energy points" << std::endl;
+		return ;
+	}
+	this->_hit_points -= this->_attack_damage;
+	this->_energy_points--;
+	std::cout << "ScavTrap " << this->_name << " attacks " << target <<  " causing " << this->_attack_damage << " points of damage" << std::endl;
+}
+
+
+void	Scavtrap::guardGate()
+{
+	std::cout << " ScavTrap is now in Gate keeper mode." << std::endl;
 }

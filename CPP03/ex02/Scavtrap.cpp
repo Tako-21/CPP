@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:29:38 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/09 19:23:59 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/09 19:23:39 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,6 @@ Scavtrap::~Scavtrap()
 {
 	std::cout << "Scavtrap Destructor Called" << std::endl;
 }
-
-Scavtrap::Scavtrap() {}
-
-
 
 void	Scavtrap::guardGate()
 {
@@ -44,7 +40,7 @@ void	Scavtrap::attack( const std::string& target )
 	}
 	this->_hit_points -= this->_attack_damage;
 	this->_energy_points--;
-	std::cout << "Scavtrap " << this->_name << " attacks " << target <<  " causing " << this->_attack_damage << " points of damage" << std::endl;
+	std::cout << "ClapTrap " << this->_name << " attacks " << target <<  " causing " << this->_attack_damage << " points of damage" << std::endl;
 }
 
 Scavtrap&	Scavtrap::operator= ( const Scavtrap& obj)

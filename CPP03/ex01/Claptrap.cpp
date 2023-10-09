@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 12:42:49 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/09 14:45:08 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/09 18:56:39 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,22 @@ _name(name)
 Claptrap::~Claptrap()
 {
 	std::cout << "Claptrap Destructor Called" << std::endl;
+}
+
+Claptrap&	Claptrap::operator= ( const Claptrap& obj)
+{
+	this->_name = obj._name;
+	this->_attack_damage = obj._attack_damage;
+	this->_energy_points = obj._energy_points;
+	this->_hit_points = obj._hit_points;
+	std::cout << "Copy completed successfully with copy assignment operator" << std::endl;
+	return (*this);
+}
+
+Claptrap::Claptrap(const Claptrap& obj)
+{
+	*this = obj;
+	std::cout << "Copy completed succesfully with copy constructor" << std::endl;	
 }
 
 /*----------------Public members functions--------------*/

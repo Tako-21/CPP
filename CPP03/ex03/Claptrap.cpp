@@ -6,30 +6,30 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 12:42:49 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/09 18:49:17 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/09 19:21:28 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Claptrap.hpp"
 
-/*----------------Constructor/Destructor/Copy Constructor----------------*/
+/*----------------Constructor/Destructor----------------*/
 Claptrap::Claptrap()
 {
-	std::cout << "Constructor Called" << std::endl;
+	std::cout << "Claptrap Constructor Called" << std::endl;
 }
 
 Claptrap::Claptrap(std::string name) :
 _name(name)
 {
-	std::cout << "Constructor Called" << std::endl;
-	this->_hit_points = 10;
-	this->_energy_points = 10;
-	this->_attack_damage = 0;
+	std::cout << "Claptrap Constructor Called" << std::endl;
+	this->_hit_points = 100;
+	this->_energy_points = 100;
+	this->_attack_damage = 30;
 };
 
 Claptrap::~Claptrap()
 {
-	std::cout << "Destructor Called" << std::endl;
+	std::cout << "Claptrap died" << std::endl;
 }
 
 Claptrap&	Claptrap::operator= ( const Claptrap& obj)
@@ -47,6 +47,7 @@ Claptrap::Claptrap(const Claptrap& obj)
 	*this = obj;
 	std::cout << "Copy completed succesfully with copy constructor" << std::endl;	
 }
+
 
 /*----------------Public members functions--------------*/
 void	Claptrap::attack(const std::string& target)

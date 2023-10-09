@@ -1,43 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Claptrap.hpp                                       :+:      :+:    :+:   */
+/*   Scavtrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/09 12:42:51 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/09 18:43:30 by mmeguedm         ###   ########.fr       */
+/*   Created: 2023/10/09 14:26:37 by mmeguedm          #+#    #+#             */
+/*   Updated: 2023/10/09 19:09:39 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __CLAPTRAP_HPP__
-#define __CLAPTRAP_HPP__
+#ifndef __SCAVTRAP_HPP__
+#define __SCAVTRAP_HPP__
 
-#include <iostream>
+#include "Claptrap.hpp"
 
-class Claptrap {
-
-
-private:
-
-	std::string				_name;
-	unsigned int			_hit_points;
-	unsigned int			_energy_points;
-	unsigned int			_attack_damage;
+class Scavtrap : public Claptrap
+{
 
 public:
 
 	/*------------Constructor/Destructor------------*/
-	Claptrap( void );
-	Claptrap( std::string name );
-	~Claptrap();
-	Claptrap&	operator= (const Claptrap &claptrap);
-	Claptrap( const Claptrap& obj );
+	Scavtrap( std::string name );
+	~Scavtrap( void );
+	Scavtrap&	operator= (const Scavtrap &obj);
+	Scavtrap( const Scavtrap& obj );
 
-	/*----Public member functions---*/
+	void guardGate();	
 	void	attack( const std::string& target );
-	void	takeDamage( unsigned int amount );
-	void	beRepaired( unsigned int amount );
+
+private:
+
+	std::string _name;
 };
 
-#endif /* __CLAPTRAP_HPP__ */
+#endif /* __SCAVTRAP_HPP__ */
