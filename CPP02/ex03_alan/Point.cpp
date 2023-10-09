@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 19:46:57 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/04 14:17:56 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/04 14:18:48 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,12 @@ _y(point._y){
 
 
 
-float	Point::getx( void ) const
+Fixed	Point::getx( void ) const
 {
-	return (this->_x.toFloat());
+	return (this->_x);
 }
 
-float	Point::gety( void ) const
+Fixed	Point::gety( void ) const
 {
-	return (this->_y.toFloat());
+	return (this->_y);
 }
