@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:29:38 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/09 19:23:59 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/10 15:47:00 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ Scavtrap::~Scavtrap()
 }
 
 Scavtrap::Scavtrap() {}
-
-
 
 void	Scavtrap::guardGate()
 {
