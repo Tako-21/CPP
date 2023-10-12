@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:39:49 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/10 16:20:15 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/12 19:45:24 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,9 @@ Dog::Dog( const Dog& cpy) : Animal(cpy)
 void	Dog::makeSound( void ) const
 {
 	std::cout << "* DOG SOUND *" << std::endl;
+}
+
+std::string	Dog::getType( void )
+{
+	return ( this->_type );
 }

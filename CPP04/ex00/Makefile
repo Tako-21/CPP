@@ -6,7 +6,7 @@
 #    By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/12 18:59:31 by mmeguedm          #+#    #+#              #
-#    Updated: 2023/10/10 16:20:31 by mmeguedm         ###   ########.fr        #
+#    Updated: 2023/10/12 19:21:31 by mmeguedm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,9 @@ CPPFLAGS		= -Wall -Wextra -Werror -std=c++98 -g3
 SRCS =	main.cpp		\
 		Animal.cpp		\
 		Cat.cpp			\
-		Dog.cpp
+		Dog.cpp			\
+		WrongAnimal.cpp	\
+		WrongCat.cpp
 
 # --------- Compiling ---------------------------------------------------------------
 
@@ -34,10 +36,10 @@ OBJ		= ${SRCS:.cpp=.o}
 
 # --------- Linking -----------------------------------------------------------------
 
-$(NAME) :  $(OBJ)
-		@$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
-		@printf "\n\n"
-		@echo "\033[1;32mCompilation done\033[0m"
+$(NAME) :  $(OBJ)	
+	@$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
+	@printf "\n\n"
+	@echo "\033[1;32mCompilation done\033[0m"
 
 # --------- Phony targets -----------------------------------------------------------
 
@@ -45,14 +47,15 @@ all :	$(NAME)
 
 wf :	$(NAME)
 
-wf : CPPFLAGS =
+wf : CPPFLAGS = -Wall
+
 clean :
-		@rm -rf $(OBJ)
-		@echo "Deleting objects files"
+	@rm -rf $(OBJ)
+	@echo "Deleting objects files"
 
 fclean : clean
-		@rm -rf $(NAME)
-		@echo "Deleting binary file"
+	@rm -rf $(NAME)
+	@echo "Deleting binary file"
 
 re : fclean $(NAME)
 
