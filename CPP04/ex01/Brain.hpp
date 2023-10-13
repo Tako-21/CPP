@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 12:10:38 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/13 17:27:54 by mmeguedm         ###   ########.fr       */
+/*   Created: 2023/10/13 13:14:30 by mmeguedm          #+#    #+#             */
+/*   Updated: 2023/10/13 15:06:13 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef __BRAIN_HPP__
+#define __BRAIN_HPP__
+
 #include <iostream>
 
-Zombie::Zombie(){
-}
+class Brain {
 
-Zombie::Zombie( std::string name) {
+public:
 
-	this->_name = name;
-}
+	Brain( void );
+	~Brain( void );
+	Brain& operator= ( const Brain& cpy );
+	Brain( const Brain& cpy);
 
-Zombie::~Zombie(){
-	
-	std::cout << "Bye bye " << this->_name << std::endl;
-}
+private:
 
-void Zombie::announce( void ) {
-	
-	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
+	std::string	ideas[100];
+};
 
-void	Zombie::setName( std::string name ) {
-	
-	this->_name = name;
-}
+#endif /* __BRAIN_HPP__ */

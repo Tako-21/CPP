@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 12:10:38 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/13 17:27:54 by mmeguedm         ###   ########.fr       */
+/*   Created: 2023/10/10 14:41:03 by mmeguedm          #+#    #+#             */
+/*   Updated: 2023/10/13 13:56:38 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include <iostream>
+#ifndef __CAT_HPP__
+#define __CAT_HPP__
 
-Zombie::Zombie(){
-}
+# include "Animal.hpp"
+# include "Brain.hpp"
 
-Zombie::Zombie( std::string name) {
+class Cat : public Animal
+{
 
-	this->_name = name;
-}
+public:
 
-Zombie::~Zombie(){
+	/*----------Constructor/Destructor/Copy Constructor----------*/
+	Cat( void );
+	~Cat( void );
+	Cat ( const Cat &cpy );
+	Cat& operator= ( const Cat &cpy );
 	
-	std::cout << "Bye bye " << this->_name << std::endl;
-}
+	void	makeSound( void ) const;
+	std::string	getType( void );
 
-void Zombie::announce( void ) {
-	
-	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
+private:
+	Brain*	_brain;
 
-void	Zombie::setName( std::string name ) {
-	
-	this->_name = name;
-}
+};
+
+#endif /* __CAT_HPP__ */

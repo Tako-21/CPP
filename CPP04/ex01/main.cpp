@@ -5,23 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/26 12:00:56 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/11 19:51:52 by mmeguedm         ###   ########.fr       */
+/*   Created: 2023/10/13 15:18:53 by mmeguedm          #+#    #+#             */
+/*   Updated: 2023/10/13 19:42:58 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
-#include "Point.hpp"
+#include "Animal.hpp"
+#include "Cat.hpp"
+#include "Dog.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 #include <iostream>
+#include <stdlib.h>
 
 int	main( void )
-{
-	Point	a(0.0f, 0.0f), b(1.0f, 0.0f), c(0.0f, 0.1f), point(0.5f, 0.0f);
+{	
+	Animal*	animal_map[10];
+	for ( int i = 0; i < 5; i++ ) {
+		animal_map[i] = new Dog();
+	}
+	for ( int i = 5; i < 10; i++ ) {
+		animal_map[i] = new Cat();
+	}
+	
+	animal_map[0]->makeSound();	
+	delete ( animal_map[0] );
+	animal_map[0] = animal_map[6];
+	animal_map[0]->makeSound();
 
-	std::cout << "Main Raw Bits : " << a.getx() << std::endl;
-	if (bsp(a, b, c, point))
-		std::cout << "Is in the triangle !" << std::endl;
-	else
-		std::cout << "Is not in the triangle." << std::endl;
+	for ( int i = 1; i < 10; i++ ) {
+		delete ( animal_map[i] );
+	}
 	return 0;
 }

@@ -6,13 +6,13 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:29:38 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/10 15:47:00 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/12 19:40:25 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Scavtrap.hpp"
 
-Scavtrap::Scavtrap( std::string name ) : Claptrap(name)
+Scavtrap::Scavtrap( std::string name )
 {
 	std::cout << "Scavtrap Constructor Called" << std::endl;
 }

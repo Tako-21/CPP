@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 12:10:38 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/13 17:27:54 by mmeguedm         ###   ########.fr       */
+/*   Created: 2023/10/12 16:36:11 by mmeguedm          #+#    #+#             */
+/*   Updated: 2023/10/12 19:18:03 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include <iostream>
+#ifndef __WRONGANIMAL_HPP__
+#define __WRONGANIMAL_HPP__
 
-Zombie::Zombie(){
-}
+# include <iostream>
 
-Zombie::Zombie( std::string name) {
+class WrongAnimal {
 
-	this->_name = name;
-}
+protected:
+	std::string _type;
 
-Zombie::~Zombie(){
-	
-	std::cout << "Bye bye " << this->_name << std::endl;
-}
+public:
+	WrongAnimal();
+	WrongAnimal(const WrongAnimal &copy);
+	WrongAnimal &operator= (const WrongAnimal &cpy);
+	virtual ~WrongAnimal();
+	void makeSound() const;
+	std::string	getType( void ) const;
+};
 
-void Zombie::announce( void ) {
-	
-	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
-
-void	Zombie::setName( std::string name ) {
-	
-	this->_name = name;
-}
+#endif /* __WRONGANIMAL_HPP__ */

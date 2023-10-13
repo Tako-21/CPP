@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 19:46:49 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/04 14:18:02 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/11 19:32:04 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ bool	bsp( Point const a, Point const b, Point const c, Point const point)
 		return (false);
 	if (		!vectorialProduct(a, b, point)
 			||	!vectorialProduct(a, c, point)
-			||	!vectorialProduct(b, c, point)
+			||	!vectorialProduct(b, c, point))
 		return (false);
 	return (true);
 }

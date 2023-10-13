@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 12:10:38 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/13 17:27:54 by mmeguedm         ###   ########.fr       */
+/*   Created: 2023/10/13 13:14:48 by mmeguedm          #+#    #+#             */
+/*   Updated: 2023/10/13 16:26:30 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include <iostream>
+#include "Brain.hpp"
 
-Zombie::Zombie(){
+Brain::Brain() 
+{
+	std::cout << "Brain is born" << std::endl;
 }
 
-Zombie::Zombie( std::string name) {
-
-	this->_name = name;
+Brain::~Brain()
+{
+	std::cout << "Brain is died" << std::endl;
 }
 
-Zombie::~Zombie(){
-	
-	std::cout << "Bye bye " << this->_name << std::endl;
+Brain::Brain( const Brain& cpy)
+{
+	*this = cpy;	
+	std::cout << "Copy completed successfully with copy constructor" << std::endl;
 }
 
-void Zombie::announce( void ) {
-	
-	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
-
-void	Zombie::setName( std::string name ) {
-	
-	this->_name = name;
+Brain&	Brain::operator= ( const Brain& cpy)
+{
+	for (int i = 0; i < 100; i++) {
+		this->ideas[i] = cpy.ideas[i];
+	}
+	return ( *this );
 }

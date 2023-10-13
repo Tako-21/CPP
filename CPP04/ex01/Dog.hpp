@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 12:10:38 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/13 17:27:54 by mmeguedm         ###   ########.fr       */
+/*   Created: 2023/10/10 14:39:11 by mmeguedm          #+#    #+#             */
+/*   Updated: 2023/10/13 18:21:22 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include <iostream>
+#ifndef __DOG_HPP__
+#define __DOG_HPP__
 
-Zombie::Zombie(){
-}
+# include "Animal.hpp"
+# include "Brain.hpp"
 
-Zombie::Zombie( std::string name) {
+class Dog : public Animal
+{
 
-	this->_name = name;
-}
+public:
 
-Zombie::~Zombie(){
-	
-	std::cout << "Bye bye " << this->_name << std::endl;
-}
+	Dog( void );
+	~Dog( void );
+	Dog& operator= (const Dog& cpy);
+	Dog( const Dog& cpy);
 
-void Zombie::announce( void ) {
-	
-	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
+	void makeSound( void ) const;
+	std::string	getType( void );
 
-void	Zombie::setName( std::string name ) {
-	
-	this->_name = name;
-}
+private:
+	Brain	*_brain;
+};
+
+#endif /* __DOG_HPP__ */
