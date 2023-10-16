@@ -6,15 +6,21 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 12:42:42 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/14 15:11:42 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/16 15:18:16 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
-Ice::Ice() : _type("ice") {}
+Ice::Ice() : AMateria("ice"), _type("ice")
+{
+	std::cout << "Ice Materia is created" << std::endl;
+}
 
-Ice::~Ice() {}
+Ice::~Ice() 
+{
+	std::cout << "Ice Materia is destroyed" << std::endl;
+}
 
 Ice::Ice( const Ice& cpy) : AMateria( cpy )
 {
@@ -39,4 +45,9 @@ AMateria* Ice::clone() const
 	AMateria	*newObj = new Ice( *this );
 	
 	return ( newObj );
+}
+
+std::string const & Ice::getType() const
+{
+	return ( this->_type );
 }

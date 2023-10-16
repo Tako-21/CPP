@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 12:52:17 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/14 19:21:47 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/16 17:52:23 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ class Character : public ICharacter
 public:
 
 	/*----------Constructor/Destructor/Copy Constructor---------*/
-	Character( std::string  const &name );
-	Character( std::string name );
-	~Character() {}
+	Character();
+	Character( std::string const & name );
+	~Character();	
 	Character( const Character& cpy );
 	Character&	operator= ( const Character& cpy );
 	
@@ -41,6 +41,7 @@ private:
 
 	std::string	_name;
 	AMateria	*_inventory[4];
+	AMateria	*_garbage[100];
 };
 
 #endif /* __CHARACTER_HPP__ */

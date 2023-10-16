@@ -6,15 +6,21 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:45:52 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/14 19:50:31 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/16 15:00:34 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 
-AMateria::AMateria() {}
+AMateria::AMateria() 
+{
+	std::cout << "AMateria is created" << std::endl;
+}
 
-AMateria::~AMateria() {}
+AMateria::~AMateria()
+{
+	std::cout << "AMateria is destroyed" << std::endl;
+}
 
 AMateria::AMateria(std::string const & type) : _type(type) {}
 

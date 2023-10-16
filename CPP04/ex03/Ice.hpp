@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 12:41:12 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/14 19:19:37 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/16 13:25:04 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,10 @@ public:
 	Ice& operator= ( const Ice& cpy);
 
 
-	/*----------Public members functions------------------------*/
+	/*----------Inherited methods-------------------------------*/
 	void		use( ICharacter& target );
 	AMateria*	clone() const;
+	std::string const & getType() const;
 
 private:
 

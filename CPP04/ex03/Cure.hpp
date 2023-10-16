@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 12:44:25 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/14 16:15:05 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/16 13:26:01 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ public:
 	/*----------Public members functions------------------------*/
 	void use(ICharacter& target);
 	AMateria* clone() const;
+	std::string const & getType() const;
 
 private:
 

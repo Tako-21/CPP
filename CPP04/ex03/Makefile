@@ -6,13 +6,13 @@
 #    By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/12 18:59:31 by mmeguedm          #+#    #+#              #
-#    Updated: 2023/10/14 16:10:00 by mmeguedm         ###   ########.fr        #
+#    Updated: 2023/10/16 17:34:48 by mmeguedm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # --------- Prerequisites ------------------------------------------------------
 
-NAME		= Animal
+NAME		= AMateria
 
 CC			= g++
 CPPFLAGS		= -Wall -Wextra -Werror -std=c++98 -g3
@@ -23,8 +23,8 @@ SRCS =	main.cpp		\
 		AMateria.cpp	\
 		Cure.cpp		\
 		Character.cpp	\
-		ICharacter.cpp	\
-		Ice.cpp
+		Ice.cpp			\
+		MateriaSource.cpp
 
 # --------- Compiling ---------------------------------------------------------------
 
