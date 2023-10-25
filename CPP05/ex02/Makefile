@@ -6,7 +6,7 @@
 #    By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/12 18:59:31 by mmeguedm          #+#    #+#              #
-#    Updated: 2023/10/25 14:47:43 by mmeguedm         ###   ########.fr        #
+#    Updated: 2023/10/25 16:32:57 by mmeguedm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 NAME		= Bureaucrat
 
 CC			= g++
-CPPFLAGS		= -Wall -Wextra -Werror -std=c++11 -g3
+CPPFLAGS		= -Wall -Wextra -Werror -std=c++98 -g3
 
 # --------- Sources files -----------------------------------------------------------
 

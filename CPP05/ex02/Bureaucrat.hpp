@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 10:59:03 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/25 14:12:39 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/25 19:07:43 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <iostream>
 # include <exception>
 
-class Form;
+class Aform;
 
 class Bureaucrat {
 
@@ -31,7 +31,9 @@ public:
 	void				incrementGrade( void );
 	void				decrementGrade( void );
 	void				setGrade( int grade );
-	void				signForm( Form &form );
+	void				signForm( Aform &form );
+
+	void				executeForm(Aform const & form);
 
 private:
 

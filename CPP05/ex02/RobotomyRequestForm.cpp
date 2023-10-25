@@ -6,14 +6,14 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 14:21:08 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/25 14:24:47 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/25 19:16:30 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "RobotomyRequestForm.hpp"
 # include "Aform.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm( std::string name, unsigned int x_grade, unsigned int s_grade ) : Aform(name, s_grade, x_grade)
+RobotomyRequestForm::RobotomyRequestForm( std::string name ) : Aform(name, 72, 45)
 {
 
 }
@@ -29,4 +29,23 @@ RobotomyRequestForm::RobotomyRequestForm ( const RobotomyRequestForm& cpy ) : Af
 
 RobotomyRequestForm& RobotomyRequestForm::operator= ( const RobotomyRequestForm& cpy ) {
 	return *this;
+}
+
+void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
+{
+	try
+	{
+		if (!Aform::getSigned())
+			throw(Aform::IsNotSigned());
+		else if (executor.getGrade() >= Aform::getXGrade())
+			throw(Aform::GradeTooLowException());
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+		throw;
+	}
+	std::cout << "* some drilling noises *" << std::endl;
+	std::cout	<< "The " << this->getName() << " has been robotomized "
+				<< "successfully 50% of the time" << std::endl;
 }

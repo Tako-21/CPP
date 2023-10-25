@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 10:59:01 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/25 14:14:51 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/25 19:17:11 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,13 +78,23 @@ void				Bureaucrat::setGrade( int grade )
 	}
 }
 
-// void				Bureaucrat::signForm( Form &form )
-// {
-// 	try {
-// 		if ( form.beSigned( *this ) )
-// 			std::cout << this->_name << " signed " << form.getName() << std::endl;
-// 	}
-// 	catch ( std::exception &e ) {
-// 		std::cout << this->_name << " couldn't sign because "<< e.what() << std::endl;
-// 	}
-// }
+void				Bureaucrat::signForm( Aform &form )
+{
+	try {
+		if ( form.beSigned( *this ) )
+			std::cout << this->_name << " signed " << form.getName() << std::endl;
+	}
+	catch ( std::exception &e ) {
+		std::cout << this->_name << " couldn't sign because "<< e.what() << std::endl;
+	}
+}
+
+void				Bureaucrat::executeForm(Aform const & form)
+{
+	try {
+		form.execute( *this );
+		std::cout << this->_name << " executed " << form.getName();
+	}
+	catch ( std::exception& e ) {
+	}
+}

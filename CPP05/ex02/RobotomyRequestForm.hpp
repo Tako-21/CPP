@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:23:20 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/25 14:25:02 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/25 18:53:21 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,21 @@
 #define __ROBOTOMYREQUESTFORM__
 
 # include "Aform.hpp"
+# include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class RobotomyRequestForm : public Aform
 {
 
 public:
 
-	RobotomyRequestForm( std::string name, unsigned int x_grade, unsigned int s_grade );
+	RobotomyRequestForm( std::string name );
 	~RobotomyRequestForm();
 	RobotomyRequestForm ( const RobotomyRequestForm& cpy );
 	RobotomyRequestForm& operator= ( const RobotomyRequestForm& cpy );
+
+	void	execute(Bureaucrat const & executor) const;
 
 private:
 };
