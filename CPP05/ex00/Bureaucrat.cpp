@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 10:59:01 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/24 13:43:58 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/25 12:25:48 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,19 @@ Bureaucrat::Bureaucrat( std::string name, int grade ): _name(name), _grade( grad
 }
 
 Bureaucrat::~Bureaucrat() {}
+
+
+Bureaucrat::Bureaucrat( const Bureaucrat& cpy ) : _name(cpy._name), _grade(cpy._grade)
+{
+	std::cout << "Copy completed succesfully with copy constructor" << std::endl;
+}
+
+Bureaucrat&	Bureaucrat::operator= ( const Bureaucrat& cpy )
+{
+	this->_grade = cpy.getGrade();
+	
+	return ( *this );
+}
 
 std::string	const	Bureaucrat::getName( void ) const
 {

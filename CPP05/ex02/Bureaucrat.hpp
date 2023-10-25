@@ -6,14 +6,14 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 10:59:03 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/25 12:26:51 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/25 14:12:39 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef __BUREAUCRAT_HPP__
 #define __BUREAUCRAT_HPP__
 
-# include "Form.hpp"
+# include "Aform.hpp"
 # include <iostream>
 # include <exception>
 
@@ -26,9 +26,6 @@ public:
 	/*----------Constructor/Copy Constructor/Destructor----------*/
 	Bureaucrat( std::string name, int grade );
 	~Bureaucrat();
-	Bureaucrat( const Bureaucrat& cpy );
-	Bureaucrat&	operator= ( const Bureaucrat& cpy );
-	
 	std::string	const	getName( void ) const ;
 	unsigned int		getGrade( void ) const;
 	void				incrementGrade( void );

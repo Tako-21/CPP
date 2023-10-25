@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 12:55:38 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/16 19:54:12 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/17 10:27:51 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,39 +33,33 @@ Character::~Character()
 			this->_garbage[i] = NULL;
 		}
 	}
-	
 	for ( int i = 0; i < 4; i++ ) {
 		if ( this->_inventory[i] != NULL ) {
 			delete ( this->_inventory[i] );
 			this->_inventory[i] = NULL;
 		}
 	}
-	// for (int i = 0; i < 4; i++ ) {
-	// 	if ( this->_garbage[i] != this->_inventory[i] && this->_inventory != NULL)
-	// 		delete ( this->_inventory[i] );
-	// }
 }
 
 Character::Character( std::string const & name) : _name(name) 
 {
-	for ( int i = 0; i < 4; i++ ) {
-		this->_inventory[i] = NULL;
-	}
 	for ( int i = 0; i < 100; i++ ) {
 		this->_garbage[i] = NULL;
 	}
+	for ( int i = 0; i < 4; i++ ) {
+		this->_inventory[i] = NULL;
+	}
+
 	std::cout << name << " is born" << std::endl;
 }
 
 Character::Character( const Character& cpy)
 {
-	std::cout << "Copy completed successfully with copy constructor" << std::endl;
 	*this = cpy;
 }
 
 Character&	Character::operator= ( const Character& cpy)
 {
-	std::cout << "==============TEST==============";
 	this->_name = cpy._name;
 	for ( int i = 0; i < 4; i++ ) {
 		if ( this->_inventory[i] != NULL )
@@ -73,7 +67,6 @@ Character&	Character::operator= ( const Character& cpy)
 		if ( cpy._inventory[i] )
 			this->_inventory[i] = cpy._inventory[i]->clone();
 	}
-	std::cout << "Copy completed successfully with assignment operator" << std::endl;
 	return ( *this );
 }
 

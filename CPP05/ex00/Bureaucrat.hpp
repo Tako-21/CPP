@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 10:59:03 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/24 13:38:58 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/25 12:16:02 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ public:
 	/*----------Constructor/Copy Constructor/Destructor----------*/
 	Bureaucrat( std::string name, int grade );
 	~Bureaucrat();
+	Bureaucrat( const Bureaucrat& cpy );
+	Bureaucrat&	operator= ( const Bureaucrat& cpy );
+
 	std::string	const	getName( void ) const ;
 	unsigned int		getGrade( void ) const;
 	void				incrementGrade( void );

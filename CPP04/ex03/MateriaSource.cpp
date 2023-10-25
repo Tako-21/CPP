@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 11:42:35 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/16 18:46:06 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/17 10:38:03 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ MateriaSource&	MateriaSource::operator= ( const MateriaSource& cpy )
 MateriaSource::MateriaSource( const MateriaSource& cpy ) : IMateriaSource()
 {
 	*this = cpy;
-	std::cout << "Copy completed successfully with copy constructor" << std::endl;
 }
 
 /*----------Inherited Methods-------------------------------*/
@@ -67,8 +66,3 @@ AMateria*	MateriaSource::createMateria(std::string const & type)
 	}
 	return ( 0 );
 }
-
-// AMateria&	MateriaSource::getAmateria( const AMateria* obj )
-// {
-// 	return ( this->_materia_data );
-// }

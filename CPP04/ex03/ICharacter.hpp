@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 15:21:11 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/16 17:41:32 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/17 10:37:48 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,7 @@ class ICharacter {
 public:
 
 	/*----------Constructor/Destructor/Copy Constructor---------*/
-	// ICharacter( void );
-	// ICharacter( std::string name );
 	virtual ~ICharacter() {}
-	// ICharacter( const ICharacter& cpy );
-	// virtual ICharacter&	operator= ( const ICharacter& cpy );
 
 	/*----------Public members functions------------------------*/
 	virtual std::string const & getName() const = 0;

@@ -6,25 +6,25 @@
 #    By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/12 18:59:31 by mmeguedm          #+#    #+#              #
-#    Updated: 2023/10/17 10:10:38 by mmeguedm         ###   ########.fr        #
+#    Updated: 2023/10/25 14:47:43 by mmeguedm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # --------- Prerequisites ------------------------------------------------------
 
-NAME		= AMateria
+NAME		= Bureaucrat
 
 CC			= g++
-CPPFLAGS		= -Wall -Wextra -Werror -std=c++98 -g3
+CPPFLAGS		= -Wall -Wextra -Werror -std=c++11 -g3
 
 # --------- Sources files -----------------------------------------------------------
 
-SRCS =	main.cpp		\
-		AMateria.cpp	\
-		Cure.cpp		\
-		Character.cpp	\
-		Ice.cpp			\
-		MateriaSource.cpp
+SRCS =	main.cpp					\
+		Bureaucrat.cpp				\
+		PresidentialPardonForm.cpp	\
+		RobotomyRequestForm.cpp		\
+		ShrubberyCreationForm.cpp	\
+		Aform.cpp
 
 # --------- Compiling ---------------------------------------------------------------
 
@@ -47,7 +47,7 @@ all :	$(NAME)
 
 wf :	$(NAME)
 
-wf : CPPFLAGS = -Wall -Wextra -g3
+wf : CPPFLAGS = -Wall
 
 clean :
 	@rm -rf $(OBJ)

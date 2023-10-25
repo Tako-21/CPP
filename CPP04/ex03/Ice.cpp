@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 12:42:42 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/16 15:18:16 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/17 09:59:45 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,10 @@ Ice::~Ice()
 Ice::Ice( const Ice& cpy) : AMateria( cpy )
 {
 	*this = cpy;
-	std::cout << "Copy completed successfully with copy constructor" << std::endl;
 }
 
 Ice&	Ice::operator= ( const Ice& cpy)
 {
-	std::cout << "Copy completed successfully with assignment operator" << std::endl;
 	this->_type = cpy._type;
 	return ( *this );
 }

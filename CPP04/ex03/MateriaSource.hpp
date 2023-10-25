@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 11:41:46 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/16 12:26:48 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/17 10:38:10 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ public:
 	/*----------Inherited Methods-------------------------------*/
 	void		learnMateria(AMateria*);
 	AMateria*	createMateria(std::string const & type);
-	// AMateria&	getMateria( void );
 
 private:
 

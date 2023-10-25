@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 12:45:03 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/16 19:50:33 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/17 09:59:09 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,10 @@ Cure::~Cure()
 Cure::Cure( const Cure& cpy) : AMateria( cpy )
 {
 	*this = cpy;
-	std::cout << "Copy completed successfully with copy constructor" << std::endl;
 }
 
 Cure&	Cure::operator= ( const Cure& cpy )
 {
-	std::cout << "Copy completed successfully with assignment operator" << std::endl;
 	this->_type = cpy._type;
 	return ( *this );
 }

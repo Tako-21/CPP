@@ -1,25 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   Aform.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 14:56:44 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/25 12:29:47 by mmeguedm         ###   ########.fr       */
+/*   Created: 2023/10/25 13:22:10 by mmeguedm          #+#    #+#             */
+/*   Updated: 2023/10/25 14:38:22 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __FORM__
-#define __FORM__
+#ifndef __AFORM__
+#define __AFORM__
 
 # include <iostream>
-# include <exception>
 # include "Bureaucrat.hpp"
 
 class Bureaucrat;
 
-class Form {
+class Aform {
+
+public:
+
+	Aform( std::string name, unsigned int s_grade, unsigned int x_grade );
+	virtual ~Aform() {}
+
+	virtual bool			beSigned( Bureaucrat& obj ) = 0;
+	/*	Setter						*/
+	virtual void			setGrade( unsigned int grade ) = 0;
+
+	/*	Getter						*/
+	virtual unsigned int	getXGrade( void ) const;
+	virtual unsigned int	getSGrade( void ) const;
+	virtual bool			getSigned( void ) const;
+	virtual std::string		getName( void ) const;
 
 private:
 
@@ -45,27 +59,9 @@ private:
 		public :
 			virtual const char* what() const throw();
 	};
-
-public:
-
-	/*	Constructor / Destructor	*/
-	Form( std::string name, unsigned int s_grade, unsigned int x_grade );
-	~Form();
-	Form( const Form& cpy );
-	Form&	operator= ( const Form& cpy );
-
-	bool	beSigned( Bureaucrat& obj );
-	
-	/*	Setter						*/
-	void			setGrade( unsigned int grade );
-
-	/*	Getter						*/
-	unsigned int	getXGrade( void ) const;
-	unsigned int	getSGrade( void ) const;
-	bool			getSigned( void ) const;
-	std::string		getName( void ) const;
 };
 
-std::ostream&	operator<< (std::ostream&, Form const & form);
 
-#endif /* __FORM__ */
+std::ostream&	operator<< (std::ostream&, Aform const & form);
+
+#endif /* __AFORM__ */

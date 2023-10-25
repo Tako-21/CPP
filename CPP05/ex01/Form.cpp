@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 15:00:03 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/24 16:45:12 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/25 13:10:28 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,26 @@
 Form::Form( std::string name, unsigned int s_grade, unsigned int x_grade ) :
 _name(name), _signed(false), _s_grade(s_grade), _x_grade(x_grade)
 {
-
+	this->setGrade( s_grade );
+	this->setGrade( x_grade );
+	std::cout << "Succesfully created the form" << std::endl;
 }
 
 Form::~Form() {}
+
+
+Form::Form( const Form& cpy ) : _name(cpy._name), _signed(cpy._signed), _s_grade(cpy._s_grade), _x_grade(cpy._x_grade)
+{
+	std::cout << "Copy completed succesfully with copy constructor" << std::endl;
+}
+
+Form&	Form::operator= ( const Form& cpy )
+{
+	this->_signed = cpy._signed;
+	std::cout << "Copy completed successfully with copy assignment operator" << std::endl;
+	
+	return ( *this );
+}
 
 void		Form::setGrade( unsigned int grade )
 {
@@ -56,37 +72,45 @@ bool	Form::beSigned( Bureaucrat& obj )
 /*	Overload <what> exception	*/
 const char*	Form::GradeTooHighException::what() const throw()
 {
-	return ("Grade Too High");
+	return ("grade is too high");
 }
 
 const char*	Form::GradeTooLowException::what() const throw()
 {
-	return ("Grade Too Low");
+	return ("grade is too low");
 }
 
 
 const char*	Form::AlreadySigned::what() const throw()
 {
-	return ("The form has already been signed");
+	return ("the form has already been signed");
 }
 
 /*	Getter	*/
-unsigned int	Form::getXGrade( void )
+unsigned int	Form::getXGrade( void ) const
 {
 	return ( this->_x_grade );
 }
 
-unsigned int	Form::getSGrade( void )
+unsigned int	Form::getSGrade( void ) const
 {
 	return ( this->_s_grade );
 }
 
-bool			Form::getSigned( void )
+bool			Form::getSigned( void ) const
 {
 	return ( this->_signed );
 }
 
-std::string		Form::getName( void )
+std::string		Form::getName( void ) const
 {
 	return ( this->_name );
+}
+
+std::ostream&	operator<< (std::ostream& stream, Form const & form)
+{
+	return ( stream << "Is the form signed ? : " << (form.getSigned() ? "Yes" : "No") << std::endl
+					<< "Name                 : " << form.getName() << std::endl
+					<< "xGrade               : " << form.getXGrade() << std::endl
+					<< "sGrade               : " << form.getSGrade() << std::endl );
 }

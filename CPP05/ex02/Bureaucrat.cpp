@@ -6,15 +6,14 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 10:59:01 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/25 12:28:35 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/25 14:14:51 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Bureaucrat.hpp"
-# include "Form.hpp"
+# include "Aform.hpp"
 # include <cstdlib>
 
-/*	-----------Constructor / Copy Constructor / Destructor-----------*/
 Bureaucrat::Bureaucrat( std::string name, int grade ): _name(name), _grade( grade )
 {
 	this->setGrade( grade );
@@ -23,19 +22,6 @@ Bureaucrat::Bureaucrat( std::string name, int grade ): _name(name), _grade( grad
 
 Bureaucrat::~Bureaucrat() {}
 
-Bureaucrat::Bureaucrat( const Bureaucrat& cpy ) : _name(cpy._name), _grade(cpy._grade)
-{
-	std::cout << "Copy completed succesfully with copy constructor" << std::endl;
-}
-
-Bureaucrat&	Bureaucrat::operator= ( const Bureaucrat& cpy )
-{
-	this->_grade = cpy.getGrade();
-	
-	return ( *this );
-}
-
-/*	---------Getter--------------------------------------------------*/
 std::string	const	Bureaucrat::getName( void ) const
 {
 	return ( this->_name );
@@ -46,7 +32,6 @@ unsigned int		Bureaucrat::getGrade( void ) const
 	return ( this->_grade );
 }
 
-/*	---------Others--------------------------------------------------*/
 void				Bureaucrat::incrementGrade( void )
 {
 	unsigned int	cpy_grade = this->_grade;
@@ -93,13 +78,13 @@ void				Bureaucrat::setGrade( int grade )
 	}
 }
 
-void				Bureaucrat::signForm( Form &form )
-{
-	try {
-		if ( form.beSigned( *this ) )
-			std::cout << this->_name << " signed " << form.getName() << std::endl;
-	}
-	catch ( std::exception &e ) {
-		std::cout << this->_name << " couldn't sign because "<< e.what() << std::endl;
-	}
-}
+// void				Bureaucrat::signForm( Form &form )
+// {
+// 	try {
+// 		if ( form.beSigned( *this ) )
+// 			std::cout << this->_name << " signed " << form.getName() << std::endl;
+// 	}
+// 	catch ( std::exception &e ) {
+// 		std::cout << this->_name << " couldn't sign because "<< e.what() << std::endl;
+// 	}
+// }
