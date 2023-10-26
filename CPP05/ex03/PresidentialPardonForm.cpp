@@ -1,38 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
+/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 14:21:08 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/26 12:29:22 by mmeguedm         ###   ########.fr       */
+/*   Created: 2023/10/25 14:15:18 by mmeguedm          #+#    #+#             */
+/*   Updated: 2023/10/26 11:50:23 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "RobotomyRequestForm.hpp"
+# include "PresidentialPardonForm.hpp"
 # include "Aform.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm( std::string name ) : Aform(name, 72, 45)
+PresidentialPardonForm::PresidentialPardonForm( std::string name ) : Aform(name, 25, 5)
 {
-	std::cout << "Successfully created " << name << std::endl;
-}
-
-RobotomyRequestForm::~RobotomyRequestForm() {
 
 }
 
-RobotomyRequestForm::RobotomyRequestForm ( const RobotomyRequestForm& cpy ) : Aform(cpy.getName(), cpy.getSGrade(), cpy.getXGrade())
+PresidentialPardonForm::~PresidentialPardonForm()
+{
+
+}
+
+PresidentialPardonForm::PresidentialPardonForm ( const PresidentialPardonForm& cpy ) : Aform(cpy.getName(), cpy.getSGrade(), cpy.getXGrade())
 {
 	*this = cpy;
 }
 
-RobotomyRequestForm& RobotomyRequestForm::operator= ( const RobotomyRequestForm& cpy ) {
+PresidentialPardonForm& PresidentialPardonForm::operator= ( const PresidentialPardonForm& cpy )
+{
 	(void)cpy;
 	return *this;
 }
 
-void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
+void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
 	try
 	{
@@ -46,7 +48,5 @@ void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 		std::cout << e.what() << std::endl;
 		throw;
 	}
-	std::cout << "* some drilling noises *" << std::endl;
-	std::cout	<< "The " << this->getName() << " has been robotomized "
-				<< "successfully 50% of the time" << std::endl;
+	std::cout << this->getName() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }

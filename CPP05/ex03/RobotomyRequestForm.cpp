@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 14:21:08 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/26 12:29:22 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/26 11:50:29 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 RobotomyRequestForm::RobotomyRequestForm( std::string name ) : Aform(name, 72, 45)
 {
-	std::cout << "Successfully created " << name << std::endl;
+
 }
 
 RobotomyRequestForm::~RobotomyRequestForm() {

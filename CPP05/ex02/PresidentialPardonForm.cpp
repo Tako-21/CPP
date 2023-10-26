@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 14:15:18 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/25 19:16:39 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/26 12:29:41 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 PresidentialPardonForm::PresidentialPardonForm( std::string name ) : Aform(name, 25, 5)
 {
-
+	std::cout << "Successfully created " << name << std::endl;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm()
@@ -30,6 +30,7 @@ PresidentialPardonForm::PresidentialPardonForm ( const PresidentialPardonForm& c
 
 PresidentialPardonForm& PresidentialPardonForm::operator= ( const PresidentialPardonForm& cpy )
 {
+	(void)cpy;
 	return *this;
 }
 

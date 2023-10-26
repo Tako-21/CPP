@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:23:29 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/26 12:34:16 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/26 11:50:42 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target) : Aform(target, 145, 137)
 {
-	std::cout << "Successfully created " << target << std::endl;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
@@ -50,6 +49,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 	}
 
 	static bool append = false;
+
 	std::ofstream ofs;
 
 	if (!append) {
@@ -77,6 +77,5 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 	ofs << "             [___]" << std::endl
 		<< std::endl;
 
-	std::cout << "Successfully created a beautiful xmas tree !" << std::endl;
 	ofs.close();
 }
