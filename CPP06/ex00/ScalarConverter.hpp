@@ -6,80 +6,37 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 13:44:08 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/28 11:45:52 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/28 15:27:52 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef __SCALARCONVERTER__
 #define __SCALARCONVERTER__
 
-# include <iostream>
+#include <iostream>
+#include <stdlib.h>
+#include <limits.h>
+#include <float.h>
+#include <sstream>
+#include <iomanip>
+#include <string>
 
-typedef	enum	e_type {
-	NONE,
-	CHAR,
-	INT,
-	FLOAT,
-	DOUBLE
-}				t_type;
-
-class ScalarConverter {
-
-public:
-
-	ScalarConverter( std::string number );
-	~ScalarConverter();
-	ScalarConverter ( const ScalarConverter& cpy );
-	ScalarConverter& operator= ( const ScalarConverter& cpy );
-
-	void		setType( void );
-	static void	convert( std::string str );
-
-
-	/*	Convert types	*/
-	bool		convertChar( void );
-	bool		convertInt( void );
-	bool		convertFloat( void );
-	bool		convertDouble( void );
-
-	bool		isChar( void );
-	bool		isInt( void );
-	bool		isDouble( void );
-	bool		isFloat ( void );
-
-	void		castChar( void );
-	void		castInt( void );
-	void		castFloat( void );
-	void		castDouble( void );
-	
-	void		printChar( void );
-	void		printInt( void );
-	void		printFloat( void );
-	void		printDouble( void );
-
-	typedef struct	s_Convert_Map
-	{
-		t_type	type;
-		bool	(ScalarConverter::*getType)();
-		void	(ScalarConverter::*typeCast)();
-		void	(ScalarConverter::*printType)();
-	}				t_Convert_Map;
-
-private:
-	
-
-
-	std::string				_number;
-
-	/*	Get	the type of an object	*/	
-	
-
-	static t_type		_type;
-	static char			_char;
-	static int			_int;
-	static float		_float;
-	static double		_double;
+class ScalarConverter    {
+    
+    public:
+        ScalarConverter();
+        ScalarConverter(ScalarConverter const & src);
+        ~ScalarConverter();
+        
+        ScalarConverter       &operator=(ScalarConverter const & src);
+        static void           convert(std::string entry);
+        static bool           isPLiterals(std::string const & entry);
+        static bool           isChar(std::string const & entry);
+        static bool           isInt(std::string const & entry);
+        static bool           isFloat(std::string const & entry);
+        static bool           isDouble(std::string const & entry);
+        static int            nbComas(std::string const & entry);
+        static int            nbLetters(std::string const & entry);
 };
-
 
 #endif /* __SCALARCONVERTER__ */

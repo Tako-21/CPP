@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 14:20:55 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/27 14:23:35 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/28 15:29:20 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	main( int argc, char **argv )
 {
-	if ( argc < 2 ) {
+	if ( argc != 2 ) {
 		std::cout << "Wrong number arguments. Usage : ./converter <number>" << std::endl;
 		return ( -1 );
 	}
-	ScalarConverter	convert( argv[1] );
+	ScalarConverter::convert(argv[1]);
 }
