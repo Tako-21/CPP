@@ -18,6 +18,10 @@ Diamondtrap::Diamondtrap( std::string name) : Claptrap(name + "_clap_name"), Fra
 	std::cout << "Diamond Constructor Called" << std::endl;
 	Fragtrap::_hit_points = 100;
 	Scavtrap::_energy_points = 50;
+	Fragtrap::_energy_points = 100;
+
+	std::cout << "Scav : " <<  Scavtrap::_energy_points << std::endl;
+	std::cout << "Frag : " <<  Fragtrap::_energy_points << std::endl;
 	Fragtrap::_attack_damage = 30;
 }
 

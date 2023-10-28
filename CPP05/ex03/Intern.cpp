@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 11:30:06 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/10/26 12:06:01 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/10/27 14:46:41 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ Intern& Intern::operator= ( const Intern& cpy )
 Aform*	Intern::makeForm( std::string name, std::string target )
 {
 	Aform		*form;
-	ShrubberyCreationForm	tom("Berry");
 
 	t_DataForm	data_form[4] = {
 		{"shrubbery creation", form = new ShrubberyCreationForm(target)},
