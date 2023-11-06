@@ -6,16 +6,16 @@
 #    By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/12 18:59:31 by mmeguedm          #+#    #+#              #
-#    Updated: 2023/11/06 17:24:21 by mmeguedm         ###   ########.fr        #
+#    Updated: 2023/11/06 18:51:21 by mmeguedm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # --------- Prerequisites ------------------------------------------------------
 
-NAME		= iter
+NAME		= array
 
 CC			= c++
-CPPFLAGS	= -Wall -Wextra -Werror -std=c++98 -g3
+CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 # --------- Sources files -----------------------------------------------------------
 
@@ -31,7 +31,7 @@ OBJ		= ${SRCS:.cpp=.o}
 
 # --------- Linking -----------------------------------------------------------------
 
-$(NAME) :  $(OBJ) template.hpp
+$(NAME) :  $(OBJ)
 	@$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
 	@printf "\n\n"
 	@echo "\033[1;32mCompilation done\033[0m"

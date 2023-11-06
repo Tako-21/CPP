@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   template.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 14:54:22 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/11/06 17:32:48 by mmeguedm         ###   ########.fr       */
+/*   Created: 2023/11/06 17:41:54 by mmeguedm          #+#    #+#             */
+/*   Updated: 2023/11/06 19:02:45 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	__TEMPLATE_HPP__
-#define __TEMPLATE_HPP__
+# include <iostream>
+# include "Array.hpp"
 
-template <typename T> void iter( T* addr, int lenght, void (*fp)( T& ) )
+int	main( void )
 {
-	for ( int i = 0; i < lenght; i++ ) {
-		fp(addr[i]);
-	}
+	Array<int>	arr(5);
+
+	arr[3] = 21;
+
+	std::cout << arr[3] << std::endl;
+	return ( 21 );
 }
-
-
-#endif
