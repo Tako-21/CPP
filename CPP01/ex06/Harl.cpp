@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 12:54:51 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/09/25 18:00:33 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/11/06 14:48:40 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,11 @@ void	Harl::complain( std::string level ) {
 			break ;
 		case WARNING:
 			Harl::_warning( false );
-			break ;
 		case ERROR:
 			Harl::_error( false );
 			break ;
+		default :
+			std::cout << "Hey" << std::endl;
 	}
 }
 

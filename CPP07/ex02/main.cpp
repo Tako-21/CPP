@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 17:41:54 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/11/06 19:02:45 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/11/06 19:17:22 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,13 @@
 
 int	main( void )
 {
-	Array<int>	arr(5);
+	Array<int>	arr_int(5);
+	Array<char>	arr_char(5);
+	arr_int[3] = 21;
+	arr_char[1] = 'a';
 
-	arr[3] = 21;
-
-	std::cout << arr[3] << std::endl;
+	std::cout << arr_int[3] << std::endl;
+	std::cout << arr_char[1] << std::endl;
+	
 	return ( 21 );
 }
