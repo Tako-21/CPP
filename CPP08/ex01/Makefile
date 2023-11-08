@@ -6,7 +6,7 @@
 #    By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/12 18:59:31 by mmeguedm          #+#    #+#              #
-#    Updated: 2023/11/08 14:12:11 by mmeguedm         ###   ########.fr        #
+#    Updated: 2023/11/08 14:12:22 by mmeguedm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,11 +15,12 @@
 NAME		= template
 
 CC			= c++
-CPPFLAGS	= -Wall -Wextra -Werror -std=c++98 -g3
+CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 # --------- Sources files -----------------------------------------------------------
 
-SRCS =	main.cpp
+SRCS =	main.cpp	\
+		Span.cpp
 
 # --------- Compiling ---------------------------------------------------------------
 
