@@ -6,13 +6,13 @@
 #    By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/12 18:59:31 by mmeguedm          #+#    #+#              #
-#    Updated: 2023/11/08 14:12:22 by mmeguedm         ###   ########.fr        #
+#    Updated: 2023/11/08 19:05:22 by mmeguedm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # --------- Prerequisites ------------------------------------------------------
 
-NAME		= template
+NAME		= span
 
 CC			= c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
