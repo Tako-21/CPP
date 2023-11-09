@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:28:43 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/11/08 18:53:25 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/11/09 19:07:16 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@
 # include <cstdlib>
 # include <stdint.h>
 
-class Span {
+class Span
+{
 
 public:
 
@@ -30,11 +31,13 @@ public:
 	Span ( const Span& cpy );
 	Span& operator= ( const Span& cpy );
 
+	void				addNumber( std::vector<int>::iterator it, std::vector<int>::iterator end );
 	void				addNumber( int number );
 	unsigned int		shortestSpan();
 	unsigned int		longestSpan();
 	void				displaySpan() const ;
-	void				addMultipleNumber( unsigned int number, unsigned int rep );
+	std::vector<int>::iterator			begin();
+	std::vector<int>::iterator			end();
 
 	class SpanIsFull : public std::exception {
 		public :
@@ -51,12 +54,11 @@ public:
 			virtual const char* what() const throw() { return ("Rep can't be superior to the size of Span\n"); };
 	};
 
-	std::vector<int> _vec;
 
 private:
 
+	std::vector<int> _vec;
 	unsigned int _max;
-	static std::vector<int>::iterator _it;
 };
 
 #endif /* __SPAN__ */
