@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:34:10 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/11/09 19:16:10 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/11/10 18:12:43 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,9 @@
 
 Span::Span() : _max(10) {}
 
-Span::Span( unsigned int const & N ) : _max(N)
-{
+Span::Span( unsigned int const & N ) : _max(N) {}
 
-}
-
-Span::~Span() {
-
-}
+Span::~Span() {}
 
 Span::Span ( const Span& cpy ) : _max(cpy._max)
 {
@@ -90,19 +85,6 @@ std::vector<int>::iterator	Span::end()
 {
 	return ( this->_vec.end() );
 }
-
-// void			Span::addMultipleNumber( unsigned int number, unsigned int rep )
-// {
-// 	if ( rep > _vec.size() )
-// 		throw ( RepTooHigh() );
-// 	unsigned int i = 0;
-// 	for (; i < rep; _it++, i++ ) {
-// 		_vec[i] = number;
-// 		// *_it = number;
-// 		// _it++;
-// 		_vec.push_back(++number);
-// 	}
-// }
 
 void			Span::addNumber( std::vector<int>::iterator it, std::vector<int>::iterator end )
 {

@@ -6,7 +6,7 @@
 #    By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/12 18:59:31 by mmeguedm          #+#    #+#              #
-#    Updated: 2023/11/09 17:00:30 by mmeguedm         ###   ########.fr        #
+#    Updated: 2023/11/10 18:25:01 by mmeguedm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 NAME		= mutant
 
 CC			= c++
-CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
+CPPFLAGS	= -Wall -Wextra -Werror -std=c++11
 
 # --------- Sources files -----------------------------------------------------------
 
@@ -31,7 +31,7 @@ OBJ		= ${SRCS:.cpp=.o}
 
 # --------- Linking -----------------------------------------------------------------
 
-$(NAME) :  $(OBJ)
+$(NAME) :  $(OBJ) MutantStack.hpp
 	@$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
 	@printf "\n\n"
 	@echo "\033[1;32mCompilation done\033[0m"
