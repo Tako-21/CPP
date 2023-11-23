@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:01:37 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/11/13 17:14:55 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/11/13 17:23:06 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,9 @@ public:
 
 	MutantStack( void ) {}
 	MutantStack( MutantStack const & cpy ) : std::stack<T, Container>(cpy) { *this = cpy; }
-	MutantStack&	operator= ( MutantStack const & cpy)
-	{ std::stack< T, Container >::operator=( cpy ); }
-	
+	MutantStack&	operator= ( MutantStack const & cpy) { std::stack< T, Container >::operator=( cpy ); }
 	~MutantStack() {}
+	
 	iterator begin( void )				{ return ( this->c.begin() );}
 	iterator end( void )				{ return ( this->c.end() );}
 	const iterator begin( void ) const	{ return ( this->c.begin() );}
