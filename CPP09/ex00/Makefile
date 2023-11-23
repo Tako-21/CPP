@@ -6,7 +6,7 @@
 #    By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/12 18:59:31 by mmeguedm          #+#    #+#              #
-#    Updated: 2023/11/23 19:14:29 by mmeguedm         ###   ########.fr        #
+#    Updated: 2023/11/23 21:10:20 by mmeguedm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ CPPFLAGS	= -Wall -Wextra -Werror -std=c++98 -g3
 
 # --------- Sources files -----------------------------------------------------------
 
-SRCS =	main.cpp
+SRCS =	main.cpp	\
+		BitcoinExchange.cpp
 
 # --------- Compiling ---------------------------------------------------------------
 
