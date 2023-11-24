@@ -2,6 +2,8 @@
 	"files.associations": {
 		"fstream": "cpp",
 		"stdexcept": "cpp",
-		"tuple": "cpp"
+		"tuple": "cpp",
+		"iosfwd": "cpp",
+		"*.tcc": "cpp"
 	}
 }
