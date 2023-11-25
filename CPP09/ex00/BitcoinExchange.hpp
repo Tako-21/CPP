@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 19:45:39 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/11/24 01:05:19 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/11/25 19:26:18 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@
 
 # include <map>
 # include <string>
+# include <cctype>
 # include <sstream>
 # include <fstream>
 # include <utility>
 # include <cstdlib>
 # include <iostream>
+# include <algorithm>
 # include <exception>
 
 class BitcoinExchange
