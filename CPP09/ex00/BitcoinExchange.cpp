@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 19:46:15 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/11/26 02:08:04 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/11/26 02:40:30 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,22 +71,23 @@ std::string	BitcoinExchange::validDate( std::string& line )
 
 float	BitcoinExchange::validValue( std::string& line )
 {
-	double		value;
 	std::string	token;
+	std::string	cpy;
+	double		value;
 	int			i;
-
 	i =  0;
 	token = line.substr(13, std::string::npos);
+	cpy = token;
 	std::string::difference_type n = std::count(token.begin(), token.end(), '.');
 	if ( token.find('.') != std::string::npos )
-		token.erase(token.find('.'), 1);
+		cpy.erase(token.find('.'), 1);
 	if ( n > 1 ) {
 		std::cout << "Too many dots \".\" => " << &token[i] << std::endl;
 		return ( -1 );
 	}
 	if ( token[i] == '-' )
 		i++;
-	if ( !strIsDigit( &token[i] ) ) {
+	if ( !strIsDigit( &cpy[i] ) ) {
 		std::cout << "Not only digit => " << &token[i] << std::endl;
 		return ( -1 );
 	}
@@ -114,7 +115,7 @@ std::map<std::string, float>::iterator	BitcoinExchange::getClosestDate( std::str
 	int	db_day;
 
 	int	result = 0;
-	int	previous_result = -1;
+	int	previous_result = atoi(date.substr(0, 10).c_str());
 
 	d_year  = atoi( date.substr(0, 4).c_str() );
 	d_month = atoi( date.substr(5, 2).c_str() );
@@ -128,9 +129,8 @@ std::map<std::string, float>::iterator	BitcoinExchange::getClosestDate( std::str
 		}
 		else if ( db_year == d_year && db_month == d_month ) {
 			result = abs(db_day - d_day);
-			std::cout << "result " << result << "\tprevious result : " << previous_result << std::endl;
-			if ( previous_result > result ) {
-				std::cout << "Hello" << std::endl;
+			// std::cout << "result : " << result << " previous result : " << previous_result << std::endl;
+			if ( previous_result < result ) {
 				return ( --it );
 			}
 			previous_result = result;
@@ -157,9 +157,9 @@ bool	BitcoinExchange::validFormat( std::string& line )
 	if ( ( value = validValue( line ) ) < 0)
 		return ( false );
 	std::map<std::string, float>::iterator it = getClosestDate(date);
-	std::cout << "date : " << date << "\tClosest Date " << it->first << std::endl;
+	std::cout << date << " => " << value << " = " << value *it->second << std::endl;
 
-	// std::cout << "date : " << date << "\t";
+	// std::cout << "date : " << date << "\tgetClosestDate : " << it->first << std::endl;
 	// std::cout << "value : " << value << std::endl;
 	return ( true ); 
 }
