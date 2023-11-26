@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 19:46:15 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/11/26 02:40:30 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/11/26 02:57:03 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,9 +128,8 @@ std::map<std::string, float>::iterator	BitcoinExchange::getClosestDate( std::str
 			return ( it ) ;
 		}
 		else if ( db_year == d_year && db_month == d_month ) {
-			result = abs(db_day - d_day);
-			// std::cout << "result : " << result << " previous result : " << previous_result << std::endl;
-			if ( previous_result < result ) {
+			if ( db_day > d_day ) {
+				std::cout << "hello" << std::endl;
 				return ( --it );
 			}
 			previous_result = result;
@@ -144,12 +143,14 @@ bool	BitcoinExchange::validFormat( std::string& line )
 	std::string	date;
 	float		value;
 
-	if ( line.size() < 12 ) {
+	if ( line.size() < 14 ) {
 		std::cerr << "Error: bad input => " << line << std::endl;
 		return ( false );
 	}
-	if ( line[4] != '-' || line[7] != '-' || line[10] != ' ' || line[11] != '|' || line[12] != ' ')
+	if ( line[4] != '-' || line[7] != '-' || line[10] != ' ' || line[11] != '|' || line[12] != ' ') {
+		std::cerr << "Error: bad format => " << line << std::endl;
 		return ( false );
+	}
 	if ( ( date = validDate( line ) ) == "" ){
 		std:: cerr<< "Error: bad date format => " << line.substr(0, 10) << std::endl;
 		return ( false );
@@ -159,8 +160,6 @@ bool	BitcoinExchange::validFormat( std::string& line )
 	std::map<std::string, float>::iterator it = getClosestDate(date);
 	std::cout << date << " => " << value << " = " << value *it->second << std::endl;
 
-	// std::cout << "date : " << date << "\tgetClosestDate : " << it->first << std::endl;
-	// std::cout << "value : " << value << std::endl;
 	return ( true ); 
 }
 
@@ -173,9 +172,6 @@ void	BitcoinExchange::createMap( std::ifstream &infile )
 		throw ( std::runtime_error("The file must begin with <line | value>") );
 	while ( std::getline(infile, line, '\n') ) {
 		if ( !BitcoinExchange::validFormat( line ) ) {
-
-			// std::cout << "Test" << std::endl;
-			// std::cout << "Error: bad input => " << line << std::endl;
 			continue;
 		}
 	}
