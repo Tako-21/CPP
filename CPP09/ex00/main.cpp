@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 19:17:39 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/11/25 16:44:20 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/11/26 01:37:47 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ int	main( int argc, char** argv )
 		throw ( std::runtime_error("Could not open file"));
 	}
 
+	std::string date = "2022-02-02";
+	std::string line = "2022-02-01";
+
+	std::cout << strcmp(date.c_str(), line.c_str()) << std::endl;
+	BitcoinExchange::fillDbMap(btc_price);
 	BitcoinExchange::createMap(input_price);
 
 	// std::string	date = "2011-01-03";

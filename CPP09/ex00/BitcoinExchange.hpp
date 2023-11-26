@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 19:45:39 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/11/25 19:26:18 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/11/26 01:32:45 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <map>
 # include <string>
 # include <cctype>
+# include <cstring>
 # include <sstream>
 # include <fstream>
 # include <utility>
@@ -36,16 +37,19 @@ public:
 	BitcoinExchange ( const BitcoinExchange& cpy );
 	BitcoinExchange& operator= ( const BitcoinExchange& cpy );
 
-	static bool	checkFormat( std::string date, int max_date );
-	static bool	validFormat( std::string& line );
-	static bool	validDate( std::string& line );
-	static bool	validValue( std::string& line );
-	static void createMap( std::ifstream& infile );
-	static std::map<int, std::string> split( const std::string & toSplit );
+	static bool			checkFormat( std::string date, int max_date );
+	static bool			validFormat( std::string& line );
+	static std::string	validDate( std::string& line );
+	static float		validValue( std::string& line );
+	static void			createMap( std::ifstream& infile );
+	static void			fillDbMap( std::ifstream &infile );
+	static std::map<std::string, float>::iterator	getClosestDate( std::string date );
+
 
 private:
 	
-	static std::map<std::string, int>	_map;
+	static std::map<std::string, float>	_db_map; 
+	
 };
 
 #endif /* __BITCOINEXCHANGE__ */
