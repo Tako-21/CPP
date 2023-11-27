@@ -6,7 +6,7 @@
 #    By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/12 18:59:31 by mmeguedm          #+#    #+#              #
-#    Updated: 2023/11/23 21:10:20 by mmeguedm         ###   ########.fr        #
+#    Updated: 2023/11/27 15:15:58 by mmeguedm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 NAME		= btc
 
 CC			= c++
-CPPFLAGS	= -Wall -Wextra -Werror -std=c++98 -g3
+CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 # --------- Sources files -----------------------------------------------------------
 

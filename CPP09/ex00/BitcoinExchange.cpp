@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 19:46:15 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/11/26 02:57:03 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/11/27 15:20:31 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,13 +82,13 @@ float	BitcoinExchange::validValue( std::string& line )
 	if ( token.find('.') != std::string::npos )
 		cpy.erase(token.find('.'), 1);
 	if ( n > 1 ) {
-		std::cout << "Too many dots \".\" => " << &token[i] << std::endl;
+		std::cerr << "Too many dots \".\" => " << &token[i] << std::endl;
 		return ( -1 );
 	}
 	if ( token[i] == '-' )
 		i++;
 	if ( !strIsDigit( &cpy[i] ) ) {
-		std::cout << "Not only digit => " << &token[i] << std::endl;
+		std::cerr << "Not only digit => " << &token[i] << std::endl;
 		return ( -1 );
 	}
 	value = atof( token.c_str() );
@@ -129,7 +129,6 @@ std::map<std::string, float>::iterator	BitcoinExchange::getClosestDate( std::str
 		}
 		else if ( db_year == d_year && db_month == d_month ) {
 			if ( db_day > d_day ) {
-				std::cout << "hello" << std::endl;
 				return ( --it );
 			}
 			previous_result = result;
