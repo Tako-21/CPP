@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 10:33:14 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/11/28 10:41:05 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/11/28 16:10:07 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,7 @@ int	main(int argc, char** argv)
 	}
 	catch ( std::exception &e ) {
 		std::cout << e.what() << std::endl;
+		return ( -1 );
 	}
+	std::cout << "Before : " << argv[1] << std::endl;
 }
