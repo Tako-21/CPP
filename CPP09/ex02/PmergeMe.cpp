@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 10:28:08 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/11/28 16:50:32 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/11/29 13:18:12 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,24 +38,46 @@ bool	PmergeMe::makePair( void )
 		return ( false );
 	std::list<int>::iterator end = _list.end();
 	std::list<int>::iterator it = ++_list.begin();
-	std::list<int>::iterator previous_it = --it;
+	std::list<int>::iterator previous_it = _list.begin();
+	
 	if ( _list.size() % 2 == 0 ) {
 		for ( ; it != end; it++, previous_it++ ) {
 			_mergeMe.push_back(std::make_pair(*previous_it,*it));
 		}
 	}
-	for ( int i = 0; i < _mergeMe.size(); i++ ) {
-		std::cout << _mergeMe.first[i] << _merge.second[i] << std::endl; 
+	else {
+		end--;
+		for ( ; it != end; it++, previous_it++ ) {
+			_mergeMe.push_back(std::make_pair(*previous_it,*it));
+		}
 	}
+	for ( unsigned long i = 0; i < _mergeMe.size(); i++ ) {	
+		std::cout <<  "first : " << _mergeMe[i].first << "\tsecond : " << _mergeMe[i].second << std::endl;
+	}
+	return ( true );
+}
+
+int	strDigit( std::string line, int& number )
+{
+	number = 0;
+
+	for ( ; isdigit(line[number]); number++ ) {}
+	return ( number );
 }
 
 bool PmergeMe::parseInput( std::string line )
 {
-	for ( int i = 1; line[i]; i++ ) {
-		if ( line[i] == SPACE )
+	std::stringstream	stream(line);
+	int					number;
+
+	for ( int i = 0; line[i]; i++ ) {
+		if ( line[i] == SPACE ) {
 			continue ;
-		else if ( isdigit(line[i]) )
-			_list.push_back( static_cast<int>(line[i] - '0') );
+		}
+		else if ( strDigit( &line[i], number ) ) {
+			_list.push_back( atoi(line.substr(i, number).c_str() ) );
+			i += number;
+		}
 		else
 			return ( false );
 	}
