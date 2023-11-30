@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 17:37:39 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/11/30 22:47:30 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/11/30 23:38:49 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,19 +39,35 @@ void	displayVec( std::vector<int> vec )
 	std::cout << "--------------------------" << std::endl;
 }
 
-void	swapPair( std::vector<int> & vec, unsigned long size_swap, int begin )
+unsigned long	getSize( std::vector<int>::iterator it, std::vector<int>::iterator end)
 {
-	std::vector<int>	tmp;
+	unsigned long size = 0;
+	for (; it != end; it++, size++ ) {}
+	return ( size );
+}
 
+
+void	swapPair( std::vector<int>::iterator it, std::vector<int>::iterator end )
+{
 	
-	for ( unsigned long i = begin; i < size_swap; i++ ) {
-		tmp.push_back(vec[i]);
+	std::vector<int>	left_pair;
+	unsigned long size = getSize(it, end);
+	
+	// std::cout << "--------DISPLAYING--------" << std::endl;
+	// for (; it != end; it++ ) {
+	// 	std::cout << *it << std::endl;
+	// }
+	// std::cout << "--------------------------" << std::endl;
+
+	for ( std::vector<int>::iterator cpy_it = it; cpy_it != end - size / 2; ++cpy_it ) {
+		left_pair.push_back(*cpy_it);
 	}
-	for ( unsigned long i = 0; i < size_swap; i++ ) {
-		vec[i] = vec[size_swap + i];
+	for ( std::vector<int>::iterator cpy_it = it; cpy_it != end - size / 2; ++cpy_it ) {
+		*cpy_it = *(cpy_it + size / 2);
 	}
-	for ( unsigned long i = size_swap, j = 0; i < size_swap * 2; i++, j++ ) {
-		vec[i] = tmp[j];
+	std::vector<int>::iterator left_pair_it = left_pair.begin();
+	for ( std::vector<int>::iterator cpy_it = end - size / 2; cpy_it != end; ++cpy_it, ++left_pair_it ) {
+		*cpy_it = *left_pair_it;
 	}
 }
 
@@ -62,18 +78,26 @@ void	sort( std::vector<int> & vec, int layer )
 	int					sup;
 	int					step;
 	
+	std::vector<int>::iterator	it = vec.begin();
 	step	= static_cast<unsigned int>(std::pow(2, layer));
-	inf		= step - 1;
-	sup		= (step - 1) / 2;
+	sup		= step - 1;
+	inf		= (step - 1) / 2;
 	
-	if ( vec.size() %  step  == 0 ) {
+	if ( vec.size() %  step  != 0 ) {
+		std::cout << "remove pair" << std::endl;
 		for ( int i = 0; i < layer; i++ ) {
+			odd.push_back(vec.back());
 			vec.pop_back();
 		}
 	}
-	while ( sup != vec.size() - 1 ) {
+
+	while ( sup < vec.size() ) {
+		std::cout << "vec inf : " << vec[inf] << std::endl;
+		std::cout << "vec sup : " << vec[sup] << std::endl;
 		if ( vec[inf] > vec[sup] ) {
-			swapPair( vec, step / 2, inf );
+			std::cout << "inf : " << inf << std::endl;
+			swapPair( it + inf, it + inf + step );
+			std::cout << "swap" << std::endl;
 		}
 		inf += step;
 		sup += step;
