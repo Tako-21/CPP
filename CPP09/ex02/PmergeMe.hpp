@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 17:37:31 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/12/01 13:13:46 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/12/01 17:27:14 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,6 @@ void	sort( std::vector<int> & vec, int layer );
 void	displayVec( std::vector<int> vec );
 unsigned long	getSize( std::vector<int>::iterator it, std::vector<int>::iterator end);
 void	swapPair( std::vector<int>::iterator it, std::vector<int>::iterator end );
-std::vector<int>	fordJohson( std::vector<int> & vec, int layer );
+void	insertPair( std::vector<int>::iterator it, std::vector<int>::iterator end, std::vector<int> & johnson );
+void	fordJohson( std::vector<int> vec, std::vector<int> & odd, int step );
+void	jacobsthal( std::vector<int> & vec, std::vector<int> & odd, int layer );

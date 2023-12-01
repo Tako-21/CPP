@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 17:37:39 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/12/01 13:48:37 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/12/01 17:27:36 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,6 @@ void	swapPair( std::vector<int>::iterator it, std::vector<int>::iterator end )
 	
 	std::vector<int>	left_pair;
 	unsigned long size = getSize(it, end);
-	
-	// std::cout << "--------DISPLAYING--------" << std::endl;
-	// for (; it != end; it++ ) {
-	// 	std::cout << *it << std::endl;
-	// }
-	// std::cout << "--------------------------" << std::endl;
 
 	std::cout << "size : " << size << std::endl;
 	for ( std::vector<int>::iterator cpy_it = it; cpy_it != end - size / 2; ++cpy_it ) {
@@ -73,11 +67,45 @@ void	swapPair( std::vector<int>::iterator it, std::vector<int>::iterator end )
 	}
 }
 
-std::vector<int>	fordJohson( std::vector<int> & vec, int layer )
+void	insertPair( std::vector<int>::iterator it, std::vector<int>::iterator end, std::vector<int> & johnson )
+{
+	for (; it != end; it++ ) {
+		johnson.push_back(*it);
+	}
+}
+
+void	jacobsthal( std::vector<int> & vec, std::vector<int> & odd, int layer )
+{
+	static const int	jacob[] = {0, 1, 1, 3, 5, 11, 21, 43, 85, 171, 341, 683, 1365, 2731, 5461, 10923, 21845};
+
+	for ( int i = 1; jacob[i] && jacob[i - 1] < vec.size(); i++ ) {		
+		for ( int j = jacob[i]; j!= jacob[i - 1]; j-- ) {
+		}
+	}
+}
+
+void	fordJohson( std::vector<int> vec, std::vector<int> & odd, int step )
 {
 	std::vector<int>	johnson;
+	unsigned long		range;
+	unsigned long		size;
 
-
+	std::vector<int>::iterator	it = vec.begin();
+	size = getSize(it, vec.end() );
+	//taille de mon vecteur - les grands qui sont superieurs a ma paire
+	//incrementer mon jacobsthal
+	//decrementer jacob dans la double boucle
+	// while ( layer >= 1 ) {
+	// 	layer >>= 1;
+	std::cout << "layer : " << step << std::endl;
+	range = step >> 1;
+	insertPair(it + range, it + (range << 1 ), johnson);
+		// while ( range != size ) {
+		// 	insertPair(it + range, it + (range << 1 ), johnson);
+		// 	range += range;
+		// }
+	// }
+	displayVec( johnson );
 }
 
 void	sort( std::vector<int> & vec, int layer )
@@ -95,9 +123,13 @@ void	sort( std::vector<int> & vec, int layer )
 	inf		= (step - 1) >> 1;
 	
 	std::cout << "step : " << step << std::endl;
-	if ( step  == vec.size() )
+	if ( step >> 1 == vec.size() )
+	{
+		std::cout << "vec size : " << vec.size() << std::endl;
+		// std::cout << "step : " << step / 2 << std::endl;
 		return ;
-	if ( vec.size() %  step  != 0 ) {
+	}
+	if ( vec.size() % step != 0 ) {
 		std::cout << "remove pair" << std::endl;
 		for ( unsigned long i = 0; i < step >> 1; i++ ) {
 			odd.push_back(vec.back());
@@ -118,6 +150,8 @@ void	sort( std::vector<int> & vec, int layer )
 	
 	displayVec( vec );
 	sort( vec, layer + 1 );
-	// johnson = fordJohson( vec );
+	std::cout << "-----JOHNSON------" << std::endl;
+	fordJohson( vec, odd, step );
+	std::cout << "-----END_JOHNSON--" << std::endl;
 	//jacobsthal pour implement le 1er de la paire (donc le plus petit :)
 }
