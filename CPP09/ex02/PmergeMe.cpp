@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 17:37:39 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/12/03 18:13:31 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/12/03 22:38:29 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,71 +65,95 @@ void	swapPair( std::vector<int>::iterator it, std::vector<int>::iterator end )
 	}
 }
 
-void	insertPair( std::vector<int>::iterator it, std::vector<int>::iterator end, std::vector<int> & johnson, unsigned index )
+void	insertPair( std::vector<int> & johnson, unsigned element_to_insert, unsigned index_pair, std::vector<int> & vec )
 {
-	for ( unsigned i = 0; i < index; it++, i++ ) {}
-	for (; it != end; it++ ) {
-		johnson.push_back(*it);
-		// johnson.insert( johnson.begin() ,*it);
-	}
+	std::vector<int>::iterator	it = johnson.begin();
+
+
+	for ( unsigned i = 0; i < index_pair; it++, i++ ) {}
+	
+	std::cout << "INSERTION" << " elem : " << element_to_insert << std::endl;
+	johnson.insert(it, element_to_insert);
+	displayVec(johnson);
+	vec = johnson;
+	std::cout << "END" << std::endl;
 }
 
-void	jacobsthal( std::vector<int> & johnson, std::vector<int> & odd, std::vector<int> vec, int step, const int pair )
+unsigned long	comparePair( std::vector<int> johnson, const unsigned long number_to_compare, const unsigned range )
 {
-	static const int	jacob[] = {0, 1, 1, 3, 5, 11, 21, 43, 85, 171, 341, 683, 1365, 2731, 5461, 10923, 21845};
+	unsigned	i = 0;
+	unsigned	index_pair = 0;
+	i = range - 1;
+	std::cout << "range : " << range << std::endl;
+
+	std::cout << "JOHNSON COMPARE" << std::endl;
+	displayVec(johnson);
+	while ( i < johnson.size() ) {
+		if ( number_to_compare < johnson[i])
+			return ( index_pair * range );
+		i += range;
+		index_pair++;
+	}
+	return (0);
+}
+
+void	jacobsthal( std::vector<int> & johnson, std::vector<int> & odd, std::vector<int> vec, const int step, const int pair )
+{
+	static const int	jacob[] = {0, 1, 3, 5, 11, 21, 43, 85, 171, 341, 683, 1365, 2731, 5461, 10923, 21845};
 	std::vector<int>::iterator	it = johnson.begin();
 	std::vector<int>::iterator	vec_it = vec.begin();
-	// unsigned range = step >> 1;
+	std::vector<int>	pair_to_insert;
 
-	
-	std::cout << "----------JACOB----------" << std::endl;
 	unsigned	range_jacob;
 	
 	range_jacob = (step >> 1);
-	int	i = range_jacob;
-	int	j = range_jacob - 1;
+	int	i = 0;
+	int	j = 0;
 	//	Insert the first pair;
-	while ( --i >= 0 ) {
-		johnson.insert(johnson.begin(), vec[i]);
+	while ( i < range_jacob ) {
+		i++;
+		johnson.insert(johnson.begin(), vec[range_jacob - i]);
 	}
-	std::cout << "AFTER" << std::endl;
-	displayVec( johnson );
-	if ( i + range_jacob >= vec.size() )
+	if ( range_jacob << 1 >= vec.size() ) {
+		vec = johnson;
+		// displayVec( vec );
 		return ;
+	}
+	i += range_jacob;
 	// while ( i + range_jacob <= vec.size() ) {
 	// 	for (int j = 0, k = i; j < range_jacob; ++j, ++k ) {
-	// 		std::cout << "vec_it : " << vec_it[k] << std::endl;
+	// 		pair_to_insert.push_back(vec[k]);
 	// 	}
-	// 	std::cout << "end of for\n" << std::endl;
 	// 	i += range_jacob << 1;
 	// }
-	// for (; vec_it != vec.end() ; vec_it++ ) {
-		
-	// 	// std::cout << *begin_vec << std::endl;
-	// }
-	std::cout << "pair : " << (const int)(pair) << std::endl;
 	
-	
-	std::cout << "step : " << step << std::endl;
-	std::cout << "range : " << range_jacob << std::endl;
-	//insertion de la petite  partie de la premiere paire au debut
-	// for ( int i = 1; jacob[i] && jacob[i - 1] < pair; i++ ) {		
-	// 	j = jacob[i];
-	// 	if ( jacob[i] >= pair )
-	// 		j = pair - 1;
-	// 	while ( j != jacob[i - 1] ) {
-	// 		//insertion de la petite partie de la paire a l indice j
-	// 		//pour se faire, trouver avec le binary search ou inserer la petite partie de la paire
-	// 		j--;
-	// 	}
-		// if ( j == jacob[i - 1] ) {
-		// 	std::cout << "j : " << j << "\ti : " << i << std::endl;
-		// 	range = j * ( step >> 1);
-		// 	insertPair(it + range, it + (range << 1 ), johnson, j);
-		// }
-	// }
-	std::cout << "---------END_JACOB--------" << std::endl;
-
+	unsigned long	index_pair = 0;
+	unsigned		index_to_insert = 0;
+	// insertion de la petite  partie de la premiere paire au debut
+	for ( int i = 1; jacob[i] && jacob[i - 1] < pair; i++ ) {		
+		j = jacob[i];
+		if ( jacob[i] >= pair )
+			j = pair - 1;
+		while ( j != jacob[i - 1] ) {
+			for ( int i = 0; i < range_jacob; i++ ) {
+				index_pair = j * step + i;
+			}
+			std::cout << vec[index_pair] << std::endl;
+			index_to_insert = comparePair(johnson, vec[index_pair], range_jacob);
+			for ( int i = 0; i < range_jacob; i++ ) {
+				index_pair = j * step + i;
+				std::cout << "index_to_insert : " << index_to_insert << std::endl;
+				insertPair( johnson, vec[index_pair], index_to_insert + i, vec );
+			}
+			std::cout << "index_to_insert : " << index_to_insert << std::endl;
+			//insertion de la petite partie de la paire a l indice j
+			//pour se faire, trouver avec le binary search ou inserer la petite partie de la paire
+			j--;
+		}
+	}
+	vec = johnson;
+	displayVec( vec );
+	std::cout << "END" << std::endl;
 }
 
 void	fordJohson( std::vector<int>& vec, std::vector<int> & odd, int step )
@@ -149,32 +173,19 @@ void	fordJohson( std::vector<int>& vec, std::vector<int> & odd, int step )
 		else
 			pair = vec.size() / (step);
 
-	// while ( step >= 1 ) {
-		std::cout << "vec.size : " << vec.size() << std::endl;
-		std::cout << "step : " << step << std::endl;
 		range = step >> 1;
-		std::cout << "range : " << range << std::endl; 
 		int	i = range;
 		int	k = 0;
-		// while ( i <= vec.size() ) {
-		// 	insertPair(it + range + i, it + (range << 1 ) + i, johnson, 0);
-		// 	i += range * 2;
-		// }
 
 		while ( i + range <= vec.size() ) {
 			for (int j = 0, k = i; j < range; ++j, ++k ) {
-				std::cout << "vec_it : " << it[k] << std::endl;
+				johnson.push_back(vec[k]);
+				// std::cout << "vec_it : " << it[k] << " ";
 			}
-			std::cout << "end of for\n" << std::endl;
+			std::cout << std::endl;
 			i += range << 1;
 		}
-		std::cout << "BEFORE" << std::endl;
-		displayVec( johnson );
-		jacobsthal(johnson, odd, vec, step, pair);
-		// vec = johnson;
-		// displayVec( vec );
-		// step >>= 1;
-
+	jacobsthal(johnson, odd, vec, step, pair);
 }
 
 void	sort( std::vector<int> & vec, int layer )
@@ -212,8 +223,6 @@ void	sort( std::vector<int> & vec, int layer )
 	
 	// displayVec( vec );
 	sort( vec, layer + 1 );
-	std::cout << "-----JOHNSON------" << std::endl;
 	fordJohson( vec, odd, step );
-	std::cout << "-----END_JOHNSON--" << std::endl;
 	//jacobsthal pour implement le 1er de la paire (donc le plus petit :)
 }
