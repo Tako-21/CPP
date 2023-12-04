@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 17:37:31 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/12/04 14:55:42 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/12/04 17:02:32 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ void			displayVec( std::vector<int> vec );
 unsigned long	getSize( std::vector<int>::iterator it, std::vector<int>::iterator end);
 void			swapPair( std::vector<int>::iterator it, std::vector<int>::iterator end );
 void			insertPair( std::vector<int>::iterator it, std::vector<int>::iterator end, std::vector<int> & johnson );
-void			fordJohson( std::vector<int>& vec, std::vector<int> & odd, int step );
+void			fordJohson( std::vector<int>  & johnson, std::vector<int>& vec, std::vector<int> & odd, int step );
 void			jacobsthal( std::vector<int> & johnson, std::vector<int> & odd, std::vector<int> & vec, const int step, const int pair );
 unsigned long	comparePair( std::vector<int> johnson, const unsigned long number_to_compare, const unsigned range );
