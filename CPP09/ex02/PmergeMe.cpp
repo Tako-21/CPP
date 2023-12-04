@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 17:37:39 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/12/04 15:41:33 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/12/04 16:19:52 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,16 +80,17 @@ unsigned long	comparePair( std::vector<int> johnson, const unsigned long number_
 	unsigned	i = 0;
 	unsigned	index_pair = 0;
 	i = range - 1;
-	std::cout << "range : " << range << std::endl;
 
 	std::cout << "JOHNSON COMPARE" << std::endl;
+	std::cout << "number to compare : " << number_to_compare << std::endl;
+	displayVec( johnson );
 	while ( i < johnson.size() ) {
 		if ( number_to_compare < johnson[i])
 			return ( index_pair * range );
 		i += range;
 		index_pair++;
 	}
-	return (0);
+	return ( index_pair * range );
 }
 
 void	jacobsthal( std::vector<int> & johnson, std::vector<int> & odd, std::vector<int> & vec, const int step, const int pair )
@@ -98,34 +99,23 @@ void	jacobsthal( std::vector<int> & johnson, std::vector<int> & odd, std::vector
 	std::vector<int>::iterator	it = johnson.begin();
 	std::vector<int>::iterator	vec_it = vec.begin();
 	std::vector<int>	pair_to_insert;
-
 	unsigned	range_jacob;
+	unsigned long	index_pair = 0;
+	unsigned		index_to_insert = 0;
 	
-	std::cout << "------STEP : " << step << "---------" << std::endl;
 	range_jacob = (step >> 1);
 	int	i = 0;
 	int	j = 0;
-	//	Insert the first pair;
 	while ( i < range_jacob ) {
 		i++;
 		johnson.insert(johnson.begin(), vec[range_jacob - i]);
 	}
 	if ( range_jacob << 1 >= vec.size() ) {
 		vec = johnson;
-		// displayVec( vec );
 		return ;
 	}
 	i += range_jacob;
-	// while ( i + range_jacob <= vec.size() ) {
-	// 	for (int j = 0, k = i; j < range_jacob; ++j, ++k ) {
-	// 		pair_to_insert.push_back(vec[k]);
-	// 	}
-	// 	i += range_jacob << 1;
-	// }
-	
-	unsigned long	index_pair = 0;
-	unsigned		index_to_insert = 0;
-	// insertion de la petite  partie de la premiere paire au debut
+
 	for ( int i = 1; jacob[i] && jacob[i - 1] < pair; i++ ) {		
 		j = jacob[i];
 		if ( jacob[i] >= pair )
@@ -142,20 +132,15 @@ void	jacobsthal( std::vector<int> & johnson, std::vector<int> & odd, std::vector
 			j--;
 		}
 	}
-	int	k = 0;
-	i = 0;
-	
-	while ( i + range_jacob <= odd.size() ) {
-		index_to_insert = comparePair(johnson, odd[index_pair], range_jacob);
-		// for (int j = 0, k = i; j < range_jacob; ++j, ++k ) {
-		
-		// }
-		i += range_jacob << 1;
-	
+	i = range_jacob;
+	while ( i <= odd.size() ) {
+		index_to_insert = comparePair(johnson, odd[i - 1], range_jacob);
+		for (int j = 0; j < range_jacob; ++j ) {
+			insertPair( johnson, odd[(i >> 1) + j - 1], index_to_insert + j, vec );
+		}
+		i += range_jacob;
 	}
 	vec = johnson;
-	displayVec( vec );
-	std::cout << "END" << std::endl;
 }
 
 void	fordJohson( std::vector<int>& vec, std::vector<int> & odd, int step )
@@ -163,26 +148,19 @@ void	fordJohson( std::vector<int>& vec, std::vector<int> & odd, int step )
 	std::vector<int>	johnson;
 	unsigned long		range;
 	unsigned long		range_jacob;
-
+	int	i = range;
+	int	k = 0;
+	unsigned	pair = 0;
+	
 	std::vector<int>::iterator	it = vec.begin();
-	//taille de mon vecteur - les grands qui sont superieurs a ma paire
-	//incrementer mon jacobsthal
-	//decrementer jacob dans la double boucle
-		// std::cout << "step : " << step << std::endl;
-		unsigned	pair = 0;
 		if ( static_cast<unsigned long>(step) == vec.size() )
 			pair = 1;
 		else
 			pair = vec.size() / (step);
-
 		range = step >> 1;
-		int	i = range;
-		int	k = 0;
-
 		while ( i + range <= vec.size() ) {
 			for (int j = 0, k = i; j < range; ++j, ++k ) {
 				johnson.push_back(vec[k]);
-				// std::cout << "vec_it : " << it[k] << " ";
 			}
 			std::cout << std::endl;
 			i += range << 1;
@@ -208,7 +186,7 @@ void	sort( std::vector<int> & vec, int layer )
 		return ;
 	if ( vec.size() % step != 0 ) {
 		for ( unsigned long i = 0; i < step >> 1; i++ ) {
-			odd.push_back(vec.back());
+			odd.insert(odd.begin(), vec.back());
 			vec.pop_back();
 		}
 	}
@@ -223,8 +201,6 @@ void	sort( std::vector<int> & vec, int layer )
 		sup += step;
 	}
 	
-	// displayVec( vec );
 	sort( vec, layer + 1 );
 	fordJohson( vec, odd, step );
-	//jacobsthal pour implement le 1er de la paire (donc le plus petit :)
 }
