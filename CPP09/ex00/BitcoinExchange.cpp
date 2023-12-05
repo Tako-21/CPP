@@ -6,7 +6,7 @@
 /*   By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 19:46:15 by mmeguedm          #+#    #+#             */
-/*   Updated: 2023/11/27 15:20:31 by mmeguedm         ###   ########.fr       */
+/*   Updated: 2023/12/05 13:26:45 by mmeguedm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,7 +168,7 @@ void	BitcoinExchange::createMap( std::ifstream &infile )
 
 	std::getline(infile, line, '\n');
 	if (line != "date | value")
-		throw ( std::runtime_error("The file must begin with <line | value>") );
+		throw ( std::runtime_error("The file must begin with <date | value>") );
 	while ( std::getline(infile, line, '\n') ) {
 		if ( !BitcoinExchange::validFormat( line ) ) {
 			continue;

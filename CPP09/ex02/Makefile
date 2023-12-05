@@ -6,7 +6,7 @@
 #    By: mmeguedm <mmeguedm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/12 18:59:31 by mmeguedm          #+#    #+#              #
-#    Updated: 2023/12/04 17:59:13 by mmeguedm         ###   ########.fr        #
+#    Updated: 2023/12/05 13:41:10 by mmeguedm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 NAME		= PmergeMe
 
 CC			= c++
-CPPFLAGS	= -Wall -Wextra -std=c++98 -g3
+CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 # --------- Sources files -----------------------------------------------------------
 
